@@ -115,7 +115,7 @@ func TestFetchInvalidNodeTypePanic(t *testing.T) {
 // Testing helpers
 
 func testMatchRxN(t *testing.T, f func() string, rx string, n int, println bool) {
-	for i := 0; i < 5000; i++ {
+	for i := 0; i < 1000; i++ {
 		res := f()
 		if m, _ := regexp.MatchString(rx, res); !m {
 			t.Errorf("expected %v to match %v", res, rx)
