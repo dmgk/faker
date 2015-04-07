@@ -18,7 +18,7 @@ nep:
                     "Subedi", "Tamang", "Thapa"
                   ]
     address:
-      postcode: ["0000"]
+      postcode: [0000]
       state:  [
                 "Baglung", "Banke", "Bara", "Bardiya", "Bhaktapur", "Bhojupu", "Chitwan", "Dailekh", "Dang", "Dhading", "Dhankuta", "Dhanusa", "Dolakha",
                 "Dolpha", "Gorkha", "Gulmi", "Humla", "Ilam", "Jajarkot", "Jhapa", "Jumla", "Kabhrepalanchok", "Kalikot", "Kapilvastu", "Kaski", "Kathmandu",

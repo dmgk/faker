@@ -5,7 +5,16 @@ var Ko = map[string]interface{}{
 		"postcode": []string{
 			"###-###",
 		},
+		"city_suffix": []string{
+			"구", "시", "군",
+		},
+		"city": []string{
+			"#{city_name}#{address.city_suffix}",
+		},
 		"state": []string{
+			"강원", "경기", "경남", "경북", "광주", "대구", "대전", "부산", "서울", "울산", "인천", "전남", "전북", "제주", "충남", "충북", "세종",
+		},
+		"state_abbr": []string{
 			"강원", "경기", "경남", "경북", "광주", "대구", "대전", "부산", "서울", "울산", "인천", "전남", "전북", "제주", "충남", "충북", "세종",
 		},
 		"city_name": []string{
@@ -17,17 +26,8 @@ var Ko = map[string]interface{}{
 		"street_suffix": []string{
 			"읍", "면", "동",
 		},
-		"state_abbr": []string{
-			"강원", "경기", "경남", "경북", "광주", "대구", "대전", "부산", "서울", "울산", "인천", "전남", "전북", "제주", "충남", "충북", "세종",
-		},
-		"city_suffix": []string{
-			"구", "시", "군",
-		},
-		"city": []string{
-			"#{city_name}#{city_suffix}",
-		},
 		"street_name": []string{
-			"#{street_root}#{street_suffix}",
+			"#{street_root}#{address.street_suffix}",
 		},
 	},
 	"phone_number": map[string]interface{}{
@@ -36,14 +36,14 @@ var Ko = map[string]interface{}{
 		},
 	},
 	"company": map[string]interface{}{
-		"suffix": []string{
-			"연구소", "게임즈", "그룹", "전자", "물산", "코리아",
-		},
 		"prefix": []string{
 			"주식회사", "한국",
 		},
 		"name": []string{
-			"#{prefix} #{Name.first_name}", "#{Name.first_name} #{suffix}",
+			"#{name.prefix} #{name.first_name}", "#{name.first_name} #{name.suffix}",
+		},
+		"suffix": []string{
+			"연구소", "게임즈", "그룹", "전자", "물산", "코리아",
 		},
 	},
 	"internet": map[string]interface{}{
@@ -60,14 +60,11 @@ var Ko = map[string]interface{}{
 		},
 	},
 	"name": map[string]interface{}{
+		"last_name": []string{
+			"김", "이", "박", "최", "정", "강", "조", "윤", "장", "임", "오", "한", "신", "서", "권", "황", "안", "송", "류", "홍",
+		},
 		"first_name": []string{
 			"서연", "민서", "서현", "지우", "서윤", "지민", "수빈", "하은", "예은", "윤서", "민준", "지후", "지훈", "준서", "현우", "예준", "건우", "현준", "민재", "우진", "은주",
 		},
 		"name": []string{
-			"#{last_name} #{first_name}",
-		},
-		"last_name": []string{
-			"김", "이", "박", "최", "정", "강", "조", "윤", "장", "임", "오", "한", "신", "서", "권", "황", "안", "송", "류", "홍",
-		},
-	},
-}
+			"#{name.last_name} #{name.first_name}"}}}

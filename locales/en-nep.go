@@ -10,6 +10,9 @@ var En_NEP = map[string]interface{}{
 		},
 	},
 	"address": map[string]interface{}{
+		"city": []string{
+			"Bhaktapur", "Biratnagar", "Birendranagar", "Birgunj", "Butwal", "Damak", "Dharan", "Gaur", "Gorkha", "Hetauda", "Itahari", "Janakpur", "Kathmandu", "Lahan", "Nepalgunj", "Pokhara",
+		},
 		"default_country": []string{
 			"Nepal",
 		},
@@ -19,16 +22,13 @@ var En_NEP = map[string]interface{}{
 		"state": []string{
 			"Baglung", "Banke", "Bara", "Bardiya", "Bhaktapur", "Bhojupu", "Chitwan", "Dailekh", "Dang", "Dhading", "Dhankuta", "Dhanusa", "Dolakha", "Dolpha", "Gorkha", "Gulmi", "Humla", "Ilam", "Jajarkot", "Jhapa", "Jumla", "Kabhrepalanchok", "Kalikot", "Kapilvastu", "Kaski", "Kathmandu", "Lalitpur", "Lamjung", "Manang", "Mohottari", "Morang", "Mugu", "Mustang", "Myagdi", "Nawalparasi", "Nuwakot", "Palpa", "Parbat", "Parsa", "Ramechhap", "Rauswa", "Rautahat", "Rolpa", "Rupandehi", "Sankhuwasabha", "Sarlahi", "Sindhuli", "Sindhupalchok", "Sunsari", "Surket", "Syangja", "Tanahu", "Terhathum",
 		},
-		"city": []string{
-			"Bhaktapur", "Biratnagar", "Birendranagar", "Birgunj", "Butwal", "Damak", "Dharan", "Gaur", "Gorkha", "Hetauda", "Itahari", "Janakpur", "Kathmandu", "Lahan", "Nepalgunj", "Pokhara",
-		},
 	},
 	"internet": map[string]interface{}{
-		"domain_suffix": []string{
-			"np", "com", "info", "net", "org",
-		},
 		"free_email": []string{
 			"worldlink.com.np", "gmail.com", "yahoo.com", "hotmail.com",
+		},
+		"domain_suffix": []string{
+			"np", "com", "info", "net", "org",
 		},
 	},
 	"company": map[string]interface{}{
@@ -38,7 +38,4 @@ var En_NEP = map[string]interface{}{
 	},
 	"phone_number": map[string]interface{}{
 		"formats": []string{
-			"##-#######", "+977-#-#######", "+977########",
-		},
-	},
-}
+			"##-#######", "+977-#-#######", "+977########"}}}

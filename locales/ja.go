@@ -1,16 +1,6 @@
 package locales
 
 var Ja = map[string]interface{}{
-	"phone_number": map[string]interface{}{
-		"formats": []string{
-			"0####-#-####", "0###-##-####", "0##-###-####", "0#-####-####",
-		},
-	},
-	"cell_phone": map[string]interface{}{
-		"formats": []string{
-			"090-####-####", "080-####-####", "070-####-####",
-		},
-	},
 	"name": map[string]interface{}{
 		"last_name": []string{
 			"佐藤", "鈴木", "高橋", "田中", "渡辺", "伊藤", "山本", "中村", "小林", "加藤", "吉田", "山田", "佐々木", "山口", "斎藤", "松本", "井上", "木村", "林", "清水",
@@ -19,12 +9,18 @@ var Ja = map[string]interface{}{
 			"大翔", "蓮", "颯太", "樹", "大和", "陽翔", "陸斗", "太一", "海翔", "蒼空", "翼", "陽菜", "結愛", "結衣", "杏", "莉子", "美羽", "結菜", "心愛", "愛菜", "美咲",
 		},
 		"name": []string{
-			"#{last_name} #{first_name}",
+			"#{name.last_name} #{name.first_name}",
 		},
 	},
 	"address": map[string]interface{}{
+		"city_suffix": []string{
+			"市", "区", "町", "村",
+		},
+		"city": []string{
+			"#{address.city_prefix}#{name.first_name}#{address.city_suffix}", "#{name.first_name}#{address.city_suffix}", "#{address.city_prefix}#{name.last_name}#{address.city_suffix}", "#{name.last_name}#{address.city_suffix}",
+		},
 		"street_name": []string{
-			"#{Name.first_name}#{street_suffix}", "#{Name.last_name}#{street_suffix}",
+			"#{name.first_name}#{address.street_suffix}", "#{name.last_name}#{address.street_suffix}",
 		},
 		"postcode": []string{
 			"###-####",
@@ -38,11 +34,12 @@ var Ja = map[string]interface{}{
 		"city_prefix": []string{
 			"北", "東", "西", "南", "新", "湖", "港",
 		},
-		"city_suffix": []string{
-			"市", "区", "町", "村",
-		},
-		"city": []string{
-			"#{city_prefix}#{Name.first_name}#{city_suffix}", "#{Name.first_name}#{city_suffix}", "#{city_prefix}#{Name.last_name}#{city_suffix}", "#{Name.last_name}#{city_suffix}",
+	},
+	"phone_number": map[string]interface{}{
+		"formats": []string{
+			"0####-#-####", "0###-##-####", "0##-###-####", "0#-####-####",
 		},
 	},
-}
+	"cell_phone": map[string]interface{}{
+		"formats": []string{
+			"090-####-####", "080-####-####", "070-####-####"}}}

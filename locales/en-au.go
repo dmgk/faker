@@ -1,11 +1,6 @@
 package locales
 
 var En_AU = map[string]interface{}{
-	"phone_number": map[string]interface{}{
-		"formats": []string{
-			"0# #### ####", "+61 # #### ####", "04## ### ###", "+61 4## ### ###",
-		},
-	},
 	"name": map[string]interface{}{
 		"first_name": []string{
 			"William", "Jack", "Oliver", "Joshua", "Thomas", "Lachlan", "Cooper", "Noah", "Ethan", "Lucas", "James", "Samuel", "Jacob", "Liam", "Alexander", "Benjamin", "Max", "Isaac", "Daniel", "Riley", "Ryan", "Charlie", "Tyler", "Jake", "Matthew", "Xavier", "Harry", "Jayden", "Nicholas", "Harrison", "Levi", "Luke", "Adam", "Henry", "Aiden", "Dylan", "Oscar", "Michael", "Jackson", "Logan", "Joseph", "Blake", "Nathan", "Connor", "Elijah", "Nate", "Archie", "Bailey", "Marcus", "Cameron", "Jordan", "Zachary", "Caleb", "Hunter", "Ashton", "Toby", "Aidan", "Hayden", "Mason", "Hamish", "Edward", "Angus", "Eli", "Sebastian", "Christian", "Patrick", "Andrew", "Anthony", "Luca", "Kai", "Beau", "Alex", "George", "Callum", "Finn", "Zac", "Mitchell", "Jett", "Jesse", "Gabriel", "Leo", "Declan", "Charles", "Jasper", "Jonathan", "Aaron", "Hugo", "David", "Christopher", "Chase", "Owen", "Justin", "Ali", "Darcy", "Lincoln", "Cody", "Phoenix", "Sam", "John", "Joel", "Isabella", "Ruby", "Chloe", "Olivia", "Charlotte", "Mia", "Lily", "Emily", "Ella", "Sienna", "Sophie", "Amelia", "Grace", "Ava", "Zoe", "Emma", "Sophia", "Matilda", "Hannah", "Jessica", "Lucy", "Georgia", "Sarah", "Abigail", "Zara", "Eva", "Scarlett", "Jasmine", "Chelsea", "Lilly", "Ivy", "Isla", "Evie", "Isabelle", "Maddison", "Layla", "Summer", "Annabelle", "Alexis", "Elizabeth", "Bella", "Holly", "Lara", "Madison", "Alyssa", "Maya", "Tahlia", "Claire", "Hayley", "Imogen", "Jade", "Ellie", "Sofia", "Addison", "Molly", "Phoebe", "Alice", "Savannah", "Gabriella", "Kayla", "Mikayla", "Abbey", "Eliza", "Willow", "Alexandra", "Poppy", "Samantha", "Stella", "Amy", "Amelie", "Anna", "Piper", "Gemma", "Isabel", "Victoria", "Stephanie", "Caitlin", "Heidi", "Paige", "Rose", "Amber", "Audrey", "Claudia", "Taylor", "Madeline", "Angelina", "Natalie", "Charli", "Lauren", "Ashley", "Violet", "Mackenzie", "Abby", "Skye", "Lillian", "Alana", "Lola", "Leah", "Eve", "Kiara",
@@ -25,9 +20,6 @@ var En_AU = map[string]interface{}{
 		},
 	},
 	"address": map[string]interface{}{
-		"street_suffix": []string{
-			"Avenue", "Boulevard", "Circle", "Circuit", "Court", "Crescent", "Crest", "Drive", "Estate Dr", "Grove", "Hill", "Island", "Junction", "Knoll", "Lane", "Loop", "Mall", "Manor", "Meadow", "Mews", "Parade", "Parkway", "Pass", "Place", "Plaza", "Ridge", "Road", "Run", "Square", "Station St", "Street", "Summit", "Terrace", "Track", "Trail", "View Rd", "Way",
-		},
 		"default_country": []string{
 			"Australia",
 		},
@@ -43,5 +35,10 @@ var En_AU = map[string]interface{}{
 		"building_number": []string{
 			"####", "###", "##",
 		},
+		"street_suffix": []string{
+			"Avenue", "Boulevard", "Circle", "Circuit", "Court", "Crescent", "Crest", "Drive", "Estate Dr", "Grove", "Hill", "Island", "Junction", "Knoll", "Lane", "Loop", "Mall", "Manor", "Meadow", "Mews", "Parade", "Parkway", "Pass", "Place", "Plaza", "Ridge", "Road", "Run", "Square", "Station St", "Street", "Summit", "Terrace", "Track", "Trail", "View Rd", "Way",
+		},
 	},
-}
+	"phone_number": map[string]interface{}{
+		"formats": []string{
+			"0# #### ####", "+61 # #### ####", "04## ### ###", "+61 4## ### ###"}}}

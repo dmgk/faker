@@ -59,7 +59,7 @@ sv:
     phone_number:
       formats: ['####-#####', '####-######']
     cell_phone:
-      common_cell_prefix: ["070", "076", "073"]
+      common_cell_prefix: [070, 076, 073]
       formats: ['#{common_cell_prefix}-###-####']
 
     commerce:

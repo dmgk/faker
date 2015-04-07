@@ -10,25 +10,25 @@ var En_IND = map[string]interface{}{
 		},
 	},
 	"address": map[string]interface{}{
-		"default_country": []string{
-			"India", "Indian Republic", "Bharat", "Hindustan",
-		},
-		"postcode": []string{
-			"?#? #?#",
-		},
 		"state": []string{
 			"Andra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Madya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttaranchal", "Uttar Pradesh", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadar and Nagar Haveli", "Daman and Diu", "Delhi", "Lakshadweep", "Pondicherry",
 		},
 		"state_abbr": []string{
 			"AP", "AR", "AS", "BR", "CG", "DL", "GA", "GJ", "HR", "HP", "JK", "JS", "KA", "KL", "MP", "MH", "MN", "ML", "MZ", "NL", "OR", "PB", "RJ", "SK", "TN", "TR", "UK", "UP", "WB", "AN", "CH", "DN", "DD", "LD", "PY",
 		},
+		"default_country": []string{
+			"India", "Indian Republic", "Bharat", "Hindustan",
+		},
+		"postcode": []string{
+			"?#? #?#",
+		},
 	},
 	"internet": map[string]interface{}{
-		"domain_suffix": []string{
-			"in", "com", "biz", "info", "name", "net", "org", "co.in",
-		},
 		"free_email": []string{
 			"gmail.com", "yahoo.co.in", "hotmail.com",
+		},
+		"domain_suffix": []string{
+			"in", "com", "biz", "info", "name", "net", "org", "co.in",
 		},
 	},
 	"company": map[string]interface{}{
@@ -38,7 +38,4 @@ var En_IND = map[string]interface{}{
 	},
 	"phone_number": map[string]interface{}{
 		"formats": []string{
-			"+91###-###-####", "+91##########", "+91-###-#######",
-		},
-	},
-}
+			"+91###-###-####", "+91##########", "+91-###-#######"}}}

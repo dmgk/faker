@@ -39,7 +39,7 @@ pt-BR:
         - "#{Name.last_name} #{suffix}"
         - "#{Name.last_name}-#{Name.last_name}"
         - "#{Name.last_name}, #{Name.last_name} e #{Name.last_name}"
-
+      
     internet:
       free_email: [gmail.com, yahoo.com, hotmail.com, live.com, bol.com.br]
       domain_suffix: [br, com, biz, info, name, net, org]

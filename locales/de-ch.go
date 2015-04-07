@@ -17,7 +17,7 @@ var De_CH = map[string]interface{}{
 			"AG", "GmbH", "und Söhne", "und Partner", "& Co.", "Gruppe", "LLC", "Inc.",
 		},
 		"name": []string{
-			"#{Name.last_name} #{suffix}", "#{Name.last_name}-#{Name.last_name}", "#{Name.last_name}, #{Name.last_name} und #{Name.last_name}",
+			"#{name.last_name} #{name.suffix}", "#{name.last_name}-#{name.last_name}", "#{name.last_name}, #{name.last_name} und #{name.last_name}",
 		},
 	},
 	"internet": map[string]interface{}{
@@ -27,7 +27,4 @@ var De_CH = map[string]interface{}{
 	},
 	"phone_number": map[string]interface{}{
 		"formats": []string{
-			"0800 ### ###", "0800 ## ## ##", "0## ### ## ##", "0## ### ## ##", "+41 ## ### ## ##", "0900 ### ###", "076 ### ## ##", "+4178 ### ## ##", "0041 79 ### ## ##",
-		},
-	},
-}
+			"0800 ### ###", "0800 ## ## ##", "0## ### ## ##", "0## ### ## ##", "+41 ## ### ## ##", "0900 ### ###", "076 ### ## ##", "+4178 ### ## ##", "0041 79 ### ## ##"}}}
