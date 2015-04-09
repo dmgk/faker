@@ -1,5 +1,34 @@
 package faker
 
+import (
+	crand "crypto/rand"
+	"fmt"
+	"math/rand"
+	"reflect"
+	"regexp"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/enodata/faker/locales"
+)
+
+const (
+	Digits           = "0123456789"
+	ULetters         = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	DLetters         = "abcdefghijklmnopqrstuvwxyz"
+	Letters          = ULetters + DLetters
+	DigitsAndLetters = Digits + Letters
+)
+
+var (
+	aryDigits   []string = strings.Split(Digits, "")
+	aryULetters []string = strings.Split(ULetters, "")
+	aryDLetters []string = strings.Split(DLetters, "")
+	aryLetters  []string = strings.Split(Letters, "")
+)
+
+// Generate locales
 //go:generate go run cmd/generate.go yaml/de-AT.yml locales/de-at.go
 //go:generate go run cmd/generate.go yaml/de-CH.yml locales/de-ch.go
 //go:generate go run cmd/generate.go yaml/de.yml locales/de.go
@@ -28,34 +57,6 @@ package faker
 //go:generate go run cmd/generate.go yaml/vi.yml locales/vi.go
 //go:generate go run cmd/generate.go yaml/zh-CN.yml locales/zh-cn.go
 //go:generate go run cmd/generate.go yaml/zh-TW.yml locales/zh-tw.go
-
-import (
-	crand "crypto/rand"
-	"fmt"
-	"math/rand"
-	"reflect"
-	"regexp"
-	"strconv"
-	"strings"
-	"time"
-
-	"github.com/enodata/faker/locales"
-)
-
-const (
-	Digits           = "0123456789"
-	ULetters         = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	DLetters         = "abcdefghijklmnopqrstuvwxyz"
-	Letters          = ULetters + DLetters
-	DigitsAndLetters = Digits + Letters
-)
-
-var (
-	aryDigits   []string = strings.Split(Digits, "")
-	aryULetters []string = strings.Split(ULetters, "")
-	aryDLetters []string = strings.Split(DLetters, "")
-	aryLetters  []string = strings.Split(Letters, "")
-)
 
 // Default locale.
 var Locale = locales.En

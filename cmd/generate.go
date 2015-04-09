@@ -3,19 +3,19 @@ package main
 
 import (
 	"fmt"
+	"go/format"
 	"io/ioutil"
 	"os"
 	"path"
-	"strings"
 	"regexp"
-	"go/format"
+	"strings"
 
 	"gopkg.in/yaml.v1"
 )
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Println("usage: generate file.yml")
+		fmt.Println("usage: generate in.yml out.go")
 		os.Exit(1)
 	}
 	infile := os.Args[1]
@@ -23,16 +23,14 @@ func main() {
 
 	yml, err := ioutil.ReadFile(infile)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		panic(err)
 	}
 
 	// load yaml locale data
 	data := make(map[interface{}]interface{})
 	err = yaml.Unmarshal(yml, data)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		panic(err)
 	}
 
 	// remove top-level locale and faker keys
@@ -80,7 +78,7 @@ func main() {
 	out = regexp.MustCompile(`#\{street_name`).ReplaceAllString(out, "#{address.street_name")
 	out = regexp.MustCompile(`#\{street_suffix`).ReplaceAllString(out, "#{address.street_suffix")
 	out = regexp.MustCompile(`#\{creature`).ReplaceAllString(out, "#{team.creature")
-	
+
 	outb, err := format.Source([]byte(out))
 	if err != nil {
 		panic(err)
