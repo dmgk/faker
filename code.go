@@ -126,3 +126,27 @@ func (c Code) Rut() string {
 
 	return fmt.Sprintf("%s-%s", rut, checkDigit)
 }
+
+var abnFactors = [...]int{3, 5, 7, 9, 11, 13, 15, 17, 19}
+
+// Example:
+//  Code{}.Abn() // 57914951376
+func (c Code) Abn() string {
+	acn, err := Regexify(`\d{9}`)
+	if err != nil {
+		panic(err)
+	}
+
+	var sum int = 0
+	for i, d := range acn {
+		n, err := strconv.Atoi(string(d))
+		if err != nil {
+			panic(err)
+		}
+		sum += n * abnFactors[i]
+	}
+	rem := (sum/89+1)*89 - sum
+	checkDigits := rem + 10
+
+	return fmt.Sprintf("%d%s", checkDigits, acn)
+}

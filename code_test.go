@@ -21,3 +21,7 @@ func TestCodeEan8(t *testing.T) {
 func TestCodeRut(t *testing.T) {
 	testMatchRx(t, Code{}.Rut, `^\d{8}-(\d|k|K)$`)
 }
+
+func TestCodeAbn(t *testing.T) {
+	testMatchRx(t, Code{}.Abn, `^\d{11}$`)
+}
