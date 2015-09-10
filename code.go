@@ -5,11 +5,22 @@ import (
 	"strconv"
 )
 
-type Code struct{}
+type FakeCode interface {
+	Isbn10() string // => "048931033-8"
+	Isbn13() string // => "391668236072-1"
+	Ean13() string  // => "7742864258656"
+	Ean8() string   // => "03079010"
+	Rut() string    // => "14371602-3"
+	Abn() string    // => "57914951376"
+}
 
-// Example:
-//  Code{}.Isbn10() // 048931033-8
-func (c Code) Isbn10() string {
+type fakeCode struct{}
+
+func Code() FakeCode {
+	return fakeCode{}
+}
+
+func (c fakeCode) Isbn10() string {
 	val, err := Regexify(`\d{9}`)
 	if err != nil {
 		panic(err)
@@ -55,23 +66,17 @@ func ean13() (ean string, checkDigit string) {
 	return
 }
 
-// Example:
-//  Code{}.Isbn13() // 391668236072-1
-func (c Code) Isbn13() string {
+func (c fakeCode) Isbn13() string {
 	ean, checkDigit := ean13()
 	return fmt.Sprintf("%s-%s", ean, checkDigit)
 }
 
-// Example:
-//  Code{}.Ean13() // 7742864258656
-func (c Code) Ean13() string {
+func (c fakeCode) Ean13() string {
 	ean, checkDigit := ean13()
 	return fmt.Sprintf("%s%s", ean, checkDigit)
 }
 
-// Example:
-//  Code{}.Ean8() // 03079010
-func (c Code) Ean8() string {
+func (c fakeCode) Ean8() string {
 	ean, err := Regexify(`\d{7}`)
 	if err != nil {
 		panic(err)
@@ -96,9 +101,7 @@ func (c Code) Ean8() string {
 
 var rutFactors = [...]int{3, 2, 7, 6, 5, 4, 3, 2}
 
-// Example:
-//  Code{}.Rut() // 14371602-3
-func (c Code) Rut() string {
+func (c fakeCode) Rut() string {
 	rut, err := Regexify(`\d{8}`)
 	if err != nil {
 		panic(err)
@@ -129,9 +132,7 @@ func (c Code) Rut() string {
 
 var abnFactors = [...]int{3, 5, 7, 9, 11, 13, 15, 17, 19}
 
-// Example:
-//  Code{}.Abn() // 57914951376
-func (c Code) Abn() string {
+func (c fakeCode) Abn() string {
 	acn, err := Regexify(`\d{9}`)
 	if err != nil {
 		panic(err)

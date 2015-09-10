@@ -1,3 +1,8 @@
+/*
+Faker is a library for generating fake data such as names, addresses, and phone numbers.
+
+It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stympy/faker) to Go.
+*/
 package faker
 
 import (
@@ -14,18 +19,18 @@ import (
 )
 
 const (
-	Digits           = "0123456789"
-	ULetters         = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	DLetters         = "abcdefghijklmnopqrstuvwxyz"
-	Letters          = ULetters + DLetters
-	DigitsAndLetters = Digits + Letters
+	digits           = "0123456789"
+	uLetters         = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	dLetters         = "abcdefghijklmnopqrstuvwxyz"
+	letters          = uLetters + dLetters
+	digitsAndLetters = digits + letters
 )
 
 var (
-	aryDigits   []string = strings.Split(Digits, "")
-	aryULetters []string = strings.Split(ULetters, "")
-	aryDLetters []string = strings.Split(DLetters, "")
-	aryLetters  []string = strings.Split(Letters, "")
+	aryDigits   []string = strings.Split(digits, "")
+	aryULetters []string = strings.Split(uLetters, "")
+	aryDLetters []string = strings.Split(dLetters, "")
+	aryLetters  []string = strings.Split(letters, "")
 )
 
 // Generate locales
@@ -84,7 +89,7 @@ func RandomString(n int) string {
 	bytes := make([]byte, n)
 	crand.Read(bytes)
 	for i, b := range bytes {
-		bytes[i] = DigitsAndLetters[b%byte(len(DigitsAndLetters))]
+		bytes[i] = digitsAndLetters[b%byte(len(digitsAndLetters))]
 	}
 	return string(bytes)
 }

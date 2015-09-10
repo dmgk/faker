@@ -6,12 +6,18 @@ import (
 	"math/big"
 )
 
-type Bitcoin struct{}
+type FakeBitcoin interface {
+	Address() string // => "1GpEKM5UvD4XDLMirpNLoDnRVrGutogMj2"
+	String() string  // String is an alias for Address.
+}
 
-// Address returns valid Bitcoin address.
-// Example:
-//  Bitcoin{}.Adress() // 1GpEKM5UvD4XDLMirpNLoDnRVrGutogMj2
-func (b Bitcoin) Address() string {
+type fakeBitcoin struct{}
+
+func Bitcoin() FakeBitcoin {
+	return fakeBitcoin{}
+}
+
+func (b fakeBitcoin) Address() string {
 	v := make([]byte, 20)
 	rand.Read(v)
 
@@ -54,9 +60,6 @@ func encodeBase58Check(val []byte) []byte {
 	return res
 }
 
-// String returns valid Bitcoin address.
-// Example:
-//  fmt.Println(Bitcoin{}) // 1DMjeX7QEEZ9oTLdKG4WYNrvcco62ioChr
-func (b Bitcoin) String() string {
+func (b fakeBitcoin) String() string {
 	return b.Address()
 }

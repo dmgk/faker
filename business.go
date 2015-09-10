@@ -1,21 +1,25 @@
 package faker
 
-type Business struct{}
+type FakeBusiness interface {
+	CreditCardNumber() string     // => "1234-2121-1221-1211"
+	CreditCardExpiryDate() string // => "2015-11-11"
+	CreditCardType() string       // => "mastercard"
+}
 
-// Example:
-//  Business{}.CreditCardNumber() // 1234-2121-1221-1211
-func (b Business) CreditCardNumber() string {
+type fakeBusiness struct{}
+
+func Business() FakeBusiness {
+	return fakeBusiness{}
+}
+
+func (b fakeBusiness) CreditCardNumber() string {
 	return Fetch("business.credit_card_numbers")
 }
 
-// Example:
-//  Business{}.CreditCardExpiryDate() // 2015-11-11
-func (b Business) CreditCardExpiryDate() string {
+func (b fakeBusiness) CreditCardExpiryDate() string {
 	return Fetch("business.credit_card_expiry_dates")
 }
 
-// Example:
-//  Business{}.CreditCardType() // mastercard
-func (b Business) CreditCardType() string {
+func (b fakeBusiness) CreditCardType() string {
 	return Fetch("business.credit_card_types")
 }

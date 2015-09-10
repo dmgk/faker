@@ -6,47 +6,60 @@ import (
 	"reflect"
 )
 
-type Address struct{}
+type FakeAddress interface {
+	City() string                        // => "North Dessie"
+	StreetName() string                  // => "Buckridge Lakes"
+	StreetAddress() string               // => "586 Sylvester Turnpike"
+	SecondaryAddress() string            // => "Apt. 411"
+	BuildingNumber() string              // => "754"
+	Postcode() string                    // => "31340"
+	PostcodeByState(state string) string // => "46511"
+	ZipCode() string                     // ZipCode is an alias for Postcode.
+	ZipCodeByState(state string) string  // ZipCodeByState is an alias for PostcodeByState.
+	TimeZone() string                    // => "Asia/Taipei"
+	CityPrefix() string                  // => "East"
+	CitySuffix() string                  // => "town"
+	StreetSuffix() string                // => "Square"
+	State() string                       // => "Maryland"
+	StateAbbr() string                   // => "IL"
+	Country() string                     // => "Uruguay"
+	CountryCode() string                 // => "JP"
+	Latitude() float32                   // => -38.811367
+	Longitude() float32                  // => 89.2171
+	String() string                      // => "6071 Heaney Island Suite 553, Ebbaville Texas 37307"
+}
 
-// Example:
-//  Address{}.City() // North Dessie
-func (a Address) City() string {
+type fakeAddress struct{}
+
+func Address() FakeAddress {
+	return fakeAddress{}
+}
+
+func (a fakeAddress) City() string {
 	return Fetch("address.city")
 }
 
-// Example:
-//  Address{}.StreetName() // Buckridge Lakes
-func (a Address) StreetName() string {
+func (a fakeAddress) StreetName() string {
 	return Fetch("address.street_name")
 }
 
-// Example:
-//  Address{}.StreetAddress() // 586 Sylvester Turnpike
-func (a Address) StreetAddress() string {
+func (a fakeAddress) StreetAddress() string {
 	return Numerify(Fetch("address.street_address"))
 }
 
-// Example:
-//  Address{}.SecondaryAddress() // Apt. 411
-func (a Address) SecondaryAddress() string {
+func (a fakeAddress) SecondaryAddress() string {
 	return Numerify(Fetch("address.secondary_address"))
 }
 
-// Example:
-//  Address{}.BuildingNumber() // 754
-func (a Address) BuildingNumber() string {
+func (a fakeAddress) BuildingNumber() string {
 	return NumerifyAndLetterify(Fetch("address.building_number"))
 }
 
-// Example:
-//  Address{}.Postcode() // 31340
-func (a Address) Postcode() string {
+func (a fakeAddress) Postcode() string {
 	return NumerifyAndLetterify(Fetch("address.postcode"))
 }
 
-// Example:
-//  Address{}.PostcodeByState("AZ") // 46511
-func (a Address) PostcodeByState(state string) string {
+func (a fakeAddress) PostcodeByState(state string) string {
 	// postcode_by_state can be either a map[string] or a slice (as in default En locale)
 	switch pbs := valueAt("address.postcode_by_state").(type) {
 	case map[string]interface{}:
@@ -63,79 +76,54 @@ func (a Address) PostcodeByState(state string) string {
 	}
 }
 
-// ZipCode is an alias for Postcode.
-func (a Address) ZipCode() string {
+func (a fakeAddress) ZipCode() string {
 	return a.Postcode()
 }
 
-// ZipCodeByState is an alias for PostcodeByState
-func (a Address) ZipCodeByState(state string) string {
+func (a fakeAddress) ZipCodeByState(state string) string {
 	return a.PostcodeByState(state)
 }
 
-// Example:
-//  Address{}.TimeZone() // Asia/Taipei
-func (a Address) TimeZone() string {
+func (a fakeAddress) TimeZone() string {
 	return Fetch("address.time_zone")
 }
 
-// Example:
-//  Address{}.CityPrefix() // East
-func (a Address) CityPrefix() string {
+func (a fakeAddress) CityPrefix() string {
 	return Fetch("address.city_prefix")
 }
 
-// Example:
-//  Address{}.CitySuffix() // town
-func (a Address) CitySuffix() string {
+func (a fakeAddress) CitySuffix() string {
 	return Fetch("address.city_suffix")
 }
 
-// Example:
-//  Address{}.StreetSuffix() // Square
-func (a Address) StreetSuffix() string {
+func (a fakeAddress) StreetSuffix() string {
 	return Fetch("address.street_suffix")
 }
 
-// Example:
-//  Address{}.State() // Maryland
-func (a Address) State() string {
+func (a fakeAddress) State() string {
 	return Fetch("address.state")
 }
 
-// Example:
-//  Address{}.StateAbbr() // IL
-func (a Address) StateAbbr() string {
+func (a fakeAddress) StateAbbr() string {
 	return Fetch("address.state_abbr")
 }
 
-// Example:
-//  Address{}.Country() // Uruguay
-func (a Address) Country() string {
+func (a fakeAddress) Country() string {
 	return Fetch("address.country")
 }
 
-// Example:
-//  Address{}.CountryCode() // JP
-func (a Address) CountryCode() string {
+func (a fakeAddress) CountryCode() string {
 	return Fetch("address.country_code")
 }
 
-// Example:
-//  Address{}.Latitude() // -38.811367
-func (a Address) Latitude() float32 {
+func (a fakeAddress) Latitude() float32 {
 	return (rand.Float32() * 180.0) - 90.0
 }
 
-// Example:
-//  Address{}.Longitude() // 89.2171
-func (a Address) Longitude() float32 {
+func (a fakeAddress) Longitude() float32 {
 	return (rand.Float32() * 360.0) - 180.0
 }
 
-// String returns US style formatted address.
-// Example:
-//  fmt.Println(Address{}) // 6071 Heaney Island Suite 553, Ebbaville Texas 37307
-func (a Address) String() string {
+func (a fakeAddress) String() string {
 	return fmt.Sprintf("%v %v, %v %v %v", a.StreetAddress(), a.SecondaryAddress(), a.City(), a.State(), a.Postcode())
 }

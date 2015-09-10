@@ -2,28 +2,31 @@ package faker
 
 import "fmt"
 
-type App struct{}
+type FakeApp interface {
+	Name() string    // => "Alphazap"
+	Version() string // => "2.6.0"
+	Author() string  // => "Dorian Shields"
+	String() string  // => "Tempsoft 4.51"
+}
 
-// Example:
-//  App{}.Name() // Alphazap
-func (a App) Name() string {
+type fakeApp struct{}
+
+func App() FakeApp {
+	return fakeApp{}
+}
+
+func (a fakeApp) Name() string {
 	return Fetch("app.name")
 }
 
-// Example:
-//  App{}.Version() // 2.6.0
-func (a App) Version() string {
+func (a fakeApp) Version() string {
 	return Numerify(Fetch("app.version"))
 }
 
-// Example:
-//  App{}.Author() // Dorian Shields
-func (a App) Author() string {
+func (a fakeApp) Author() string {
 	return Fetch("app.author")
 }
 
-// Example:
-//  fmt.Println(App{}) // Tempsoft 4.51
-func (a App) String() string {
+func (a fakeApp) String() string {
 	return fmt.Sprintf("%v %v", a.Name(), a.Version())
 }

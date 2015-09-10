@@ -5,41 +5,52 @@ import (
 	"unicode"
 )
 
-type Hacker struct{}
+type FakeHacker interface {
+	SaySomethingSmart() string // => "If we connect the bus, we can get to the XML microchip through the digital TCP sensor!"
+	Abbreviation() string      // => "HTTP"
+	Adjective() string         // => "cross-platform"
+	Noun() string              // => "interface"
+	Verb() string              // => "bypass"
+	IngVerb() string           // => "parsing"
+	Phrases() []string         /* =>
+	"If we bypass the program, we can get to the AGP protocol through the optical SDD alarm!",
+	"We need to calculate the back-end XML microchip!",
+	"Try to generate the GB bus, maybe it will hack the neural panel!",
+	"You can't navigate the transmitter without synthesizing the optical SMS bus!",
+	"Use the optical THX application, then you can override the mobile port!",
+	"The CSS monitor is down, quantify the multi-byte bus so we can calculate the XSS bandwidth!",
+	"Connecting the card won't do anything, we need to back up the multi-byte RSS card!",
+	"I'll reboot the primary SMTP feed, that should monitor the XML protocol!`"
+	*/
+}
 
-// Example:
-//	Hacker{}.SaySomethingSmart() // If we connect the bus, we can get to the XML microchip through the digital TCP sensor!
-func (h Hacker) SaySomethingSmart() string {
+type fakeHacker struct{}
+
+func Hacker() FakeHacker {
+	return fakeHacker{}
+}
+
+func (h fakeHacker) SaySomethingSmart() string {
 	return RandomChoice(h.Phrases())
 }
 
-// Example:
-//	Hacker{}.Abbreviation() // HTTP
-func (h Hacker) Abbreviation() string {
+func (h fakeHacker) Abbreviation() string {
 	return Fetch("hacker.abbreviation")
 }
 
-// Example:
-//	Hacker{}.Adjective() // cross-platform
-func (h Hacker) Adjective() string {
+func (h fakeHacker) Adjective() string {
 	return Fetch("hacker.adjective")
 }
 
-// Example:
-//	Hacker{}.Noun() // interface
-func (h Hacker) Noun() string {
+func (h fakeHacker) Noun() string {
 	return Fetch("hacker.noun")
 }
 
-// Example:
-//	Hacker{}.Verb() // bypass
-func (h Hacker) Verb() string {
+func (h fakeHacker) Verb() string {
 	return Fetch("hacker.verb")
 }
 
-// Example:
-//	Hacker{}.IngVerb() // parsing
-func (h Hacker) IngVerb() string {
+func (h fakeHacker) IngVerb() string {
 	return Fetch("hacker.ingverb")
 }
 
@@ -70,7 +81,7 @@ func capitalize(s string) string {
 // 	The CSS monitor is down, quantify the multi-byte bus so we can calculate the XSS bandwidth!
 // 	Connecting the card won't do anything, we need to back up the multi-byte RSS card!
 // 	I'll reboot the primary SMTP feed, that should monitor the XML protocol!
-func (h Hacker) Phrases() []string {
+func (h fakeHacker) Phrases() []string {
 	return []string{
 		fmt.Sprintf("If we %s the %s, we can get to the %s %s through the %s %s %s!",
 			h.Verb(), h.Noun(), h.Abbreviation(), h.Noun(), h.Adjective(), h.Abbreviation(), h.Noun()),

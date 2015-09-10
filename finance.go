@@ -6,7 +6,17 @@ import (
 	"strings"
 )
 
-type Finance struct{}
+type FakeFinance interface {
+	// CreditCard returns a valid (with valid check digit) card number of one of the given types.
+	// If no types are passed, all types in CC_TYPES are used.
+	CreditCard(types ...string) string // => "5019-8413-2066-5594"
+}
+
+type fakeFinance struct{}
+
+func Finance() FakeFinance {
+	return fakeFinance{}
+}
 
 // Known credit card types.
 const (
@@ -61,12 +71,7 @@ func luhnCheckDigit(s string) string {
 
 var rxDigits = regexp.MustCompile(`\D`)
 
-// CreditCard returns a valid (with valid check digit) card number of one of the given types. If no types are passed,
-// all types in CC_TYPES are used.
-// Example:
-//  Finance{}.CreditCard() // 5019-8413-2066-5594
-//  Finance{}.CreditCard(CC_VISA, CC_AMERICAN_EXPRESS) // 4190418835414
-func (f Finance) CreditCard(types ...string) string {
+func (f fakeFinance) CreditCard(types ...string) string {
 	var t string
 	if len(types) > 0 {
 		t = RandomChoice(types)

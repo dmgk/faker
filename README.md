@@ -1,8 +1,8 @@
 # faker
 
-A library for generating fake data such as names, addresses, and phone numbers.
+Faker is a library for generating fake data such as names, addresses, and phone numbers.
 
-This is a port of Ruby Faker gem (https://github.com/stympy/faker) to Go.
+It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stympy/faker) to Go.
 
 [![GoDoc](https://godoc.org/github.com/enodata/faker?status.svg)](https://godoc.org/github.com/enodata/faker)
 [![Build Status](https://drone.io/github.com/enodata/faker/status.png)](https://drone.io/github.com/enodata/faker/latest)
@@ -10,4 +10,4 @@ This is a port of Ruby Faker gem (https://github.com/stympy/faker) to Go.
 
 To install
 
-    go get github.com/enodata/faker
+    go get -u github.com/enodata/faker

@@ -1,46 +1,45 @@
 package faker
 
-type Name struct{}
+type FakeName interface {
+	Name() string      // => "Natasha Hartmann"
+	FirstName() string // => "Carolina"
+	LastName() string  // => "Kohler"
+	Prefix() string    // => "Dr."
+	Suffix() string    // => "Jr."
+	Title() string     // => "Chief Functionality Orchestrator"
+	String() string    // String is an alias for Name.
+}
 
-// Example:
-//	Name{}.Name() // Natasha Hartmann
-func (n Name) Name() string {
+type fakeName struct{}
+
+func Name() FakeName {
+	return fakeName{}
+}
+
+func (n fakeName) Name() string {
 	return Fetch("name.name")
 }
 
-// Example:
-//	Name{}.FirstName() // Carolina
-func (n Name) FirstName() string {
+func (n fakeName) FirstName() string {
 	return Fetch("name.first_name")
 }
 
-// Example:
-//	Name{}.LastName() // Kohler
-func (n Name) LastName() string {
+func (n fakeName) LastName() string {
 	return Fetch("name.last_name")
 }
 
-// Example:
-//	Name{}.Prefix() // Dr.
-func (n Name) Prefix() string {
+func (n fakeName) Prefix() string {
 	return Fetch("name.prefix")
 }
 
-// Example:
-//	Name{}.Suffix() // Jr.
-func (n Name) Suffix() string {
+func (n fakeName) Suffix() string {
 	return Fetch("name.suffix")
 }
 
-// Example:
-//	Name{}.Title() // Chief Functionality Orchestrator
-func (n Name) Title() string {
+func (n fakeName) Title() string {
 	return Fetch("name.title.descriptor") + " " + Fetch("name.title.level") + " " + Fetch("name.title.job")
 }
 
-// String returns a random full name.
-// Example:
-//	fmt.Println(Name{}) //
-func (n Name) String() string {
+func (n fakeName) String() string {
 	return n.Name()
 }

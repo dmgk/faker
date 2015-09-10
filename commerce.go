@@ -6,17 +6,24 @@ import (
 	"strings"
 )
 
-type Commerce struct{}
+type FakeCommerce interface {
+	Color() string       // => "lime"
+	Department() string  // => "Electronics, Health & Baby"
+	ProductName() string // => "Ergonomic Granite Shoes"
+	Price() float32      // => 97.79
+}
 
-// Example:
-//  Commerce{}.Color() // lime
-func (c Commerce) Color() string {
+type fakeCommerce struct{}
+
+func Commerce() FakeCommerce {
+	return fakeCommerce{}
+}
+
+func (c fakeCommerce) Color() string {
 	return Fetch("commerce.color")
 }
 
-// Example:
-//  Commerce{}.Department() // Electronics, Health & Baby
-func (c Commerce) Department() string {
+func (c fakeCommerce) Department() string {
 	n := RandomInt(1, 3)
 
 	deps := make([]string, n)
@@ -40,9 +47,7 @@ func (c Commerce) Department() string {
 	}
 }
 
-// Example:
-//  Commerce{}.ProductName() // Ergonomic Granite Shoes
-func (c Commerce) ProductName() string {
+func (c fakeCommerce) ProductName() string {
 	words := []string{
 		Fetch("commerce.product_name.adjective"),
 		Fetch("commerce.product_name.material"),
@@ -51,8 +56,6 @@ func (c Commerce) ProductName() string {
 	return strings.Join(words, " ")
 }
 
-// Example:
-//  Commerce{}.Price() // 97.79
-func (c Commerce) Price() float32 {
+func (c fakeCommerce) Price() float32 {
 	return float32(math.Floor(rand.Float64()*10000.0)/100.0 + 0.01)
 }

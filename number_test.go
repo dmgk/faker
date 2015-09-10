@@ -12,11 +12,10 @@ func TestNumberNumber(t *testing.T) {
 	for _, d := range digits {
 		rx := fmt.Sprintf(`\d{%d}`, d)
 		for i := 0; i < 10; i++ {
-			res := Number{}.Number(d)
+			res := Number().Number(d)
 			if m, _ := regexp.MatchString(rx, res); !m {
 				t.Errorf("expected %v to match %v", res, rx)
 			}
-			// fmt.Println(res)
 		}
 	}
 }
@@ -34,17 +33,16 @@ func TestNumberDecimal(t *testing.T) {
 	for _, a := range args {
 		rx := fmt.Sprintf(`\d{%d}\.\d{%d}`, a.precision-a.scale, a.scale)
 		for i := 0; i < 10; i++ {
-			res := Number{}.Decimal(a.precision, a.scale)
+			res := Number().Decimal(a.precision, a.scale)
 			if m, _ := regexp.MatchString(rx, res); !m {
 				t.Errorf("expected %v to match %v", res, rx)
 			}
-			// fmt.Println(res)
 		}
 	}
 }
 
 func TestNumberDigit(t *testing.T) {
-	testMatchRx(t, Number{}.Digit, `\d`)
+	testMatchRx(t, Number().Digit, `\d`)
 }
 
 func TestNumberHexadecimal(t *testing.T) {
@@ -52,11 +50,10 @@ func TestNumberHexadecimal(t *testing.T) {
 	for _, d := range digits {
 		rx := fmt.Sprintf(`[0-9a-f]{%d}`, d)
 		for i := 0; i < 10; i++ {
-			res := Number{}.Hexadecimal(d)
+			res := Number().Hexadecimal(d)
 			if m, _ := regexp.MatchString(rx, res); !m {
 				t.Errorf("expected %v to match %v", res, rx)
 			}
-			// fmt.Println(res)
 		}
 	}
 }
@@ -74,7 +71,7 @@ func TestNumberBetween(t *testing.T) {
 	rx := `-?\d+`
 	for _, a := range args {
 		for i := 0; i < 10; i++ {
-			res := Number{}.Between(a.min, a.max)
+			res := Number().Between(a.min, a.max)
 			ires, _ := strconv.Atoi(res)
 			if ires < a.min || ires > a.max {
 				t.Errorf("expected %v to be in [%d, %d]", res, a.min, a.max)
@@ -82,7 +79,6 @@ func TestNumberBetween(t *testing.T) {
 			if m, _ := regexp.MatchString(rx, res); !m {
 				t.Errorf("expected %v to match %v", res, rx)
 			}
-			// fmt.Println(res)
 		}
 	}
 }
@@ -92,7 +88,7 @@ func TestNumberPositive(t *testing.T) {
 	rx := `\d+`
 	for _, max := range maxs {
 		for i := 0; i < 10; i++ {
-			res := Number{}.Positive(max)
+			res := Number().Positive(max)
 			ires, _ := strconv.Atoi(res)
 			if ires < 0 || ires > max {
 				t.Errorf("expected %v to be in [0, %d]", res, max)
@@ -100,7 +96,6 @@ func TestNumberPositive(t *testing.T) {
 			if m, _ := regexp.MatchString(rx, res); !m {
 				t.Errorf("expected %v to match %v", res, rx)
 			}
-			// fmt.Println(res)
 		}
 	}
 }
@@ -110,7 +105,7 @@ func TestNumberNegative(t *testing.T) {
 	rx := `\d+`
 	for _, min := range mins {
 		for i := 0; i < 10; i++ {
-			res := Number{}.Negative(min)
+			res := Number().Negative(min)
 			ires, _ := strconv.Atoi(res)
 			if ires < min || ires > 0 {
 				t.Errorf("expected %v to be in [%d, 0]", res, min)
@@ -118,7 +113,6 @@ func TestNumberNegative(t *testing.T) {
 			if m, _ := regexp.MatchString(rx, res); !m {
 				t.Errorf("expected %v to match %v", res, rx)
 			}
-			// fmt.Println(res)
 		}
 	}
 }

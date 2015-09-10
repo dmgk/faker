@@ -1,21 +1,30 @@
 package faker
 
-type Team struct{}
+type FakeTeam interface {
+	Name() string     // => "Colorado cats"
+	Creature() string // => "cats"
+	State() string    // => "Oregon"
+	String() string   // String is an alias for Name.
+}
 
-// Example:
-//  Team{}.Name() // Colorado cats
-func (t Team) Name() string {
+type fakeTeam struct{}
+
+func Team() FakeTeam {
+	return fakeTeam{}
+}
+
+func (t fakeTeam) Name() string {
 	return Fetch("team.name")
 }
 
-// Example:
-//  Team{}.Creature() // cats
-func (t Team) Creature() string {
+func (t fakeTeam) Creature() string {
 	return Fetch("team.creature")
 }
 
-// Example:
-//  Team{}.State() // Oregon
-func (t Team) State() string {
+func (t fakeTeam) State() string {
 	return Fetch("address.state")
+}
+
+func (t fakeTeam) String() string {
+	return t.Name()
 }

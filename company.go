@@ -2,53 +2,52 @@ package faker
 
 import "fmt"
 
-type Company struct{}
+type FakeCompany interface {
+	Name() string        // => "Aufderhar LLC"
+	Suffix() string      // => "Inc"
+	CatchPhrase() string // => "Universal logistical artificial intelligence"
+	Bs() string          // => "engage distributed applications"
+	Ein() string         // => "58-6520513"
+	DunsNumber() string  // => "16-708-2968"
+	Logo() string        // => "http://www.biz-logo.com/examples/015.gif"
+	String() string      // String is an alias for Name.
+}
 
-// Example:
-//  Company{}.Name() // Aufderhar LLC
-func (c Company) Name() string {
+type fakeCompany struct{}
+
+func Company() FakeCompany {
+	return fakeCompany{}
+}
+
+func (c fakeCompany) Name() string {
 	return Fetch("company.name")
 }
 
-// Example:
-//  Company{}.Suffix() // Inc
-func (c Company) Suffix() string {
+func (c fakeCompany) Suffix() string {
 	return Fetch("company.suffix")
 }
 
-// Example:
-//  Company{}.CatchPhrase() // Universal logistical artificial intelligence
-func (c Company) CatchPhrase() string {
+func (c fakeCompany) CatchPhrase() string {
 	return Fetch("company.buzzwords")
 }
 
-// Example:
-//  Company{}.Bs() // engage distributed applications
-func (c Company) Bs() string {
+func (c fakeCompany) Bs() string {
 	return Fetch("company.bs")
 }
 
-// Example:
-//  Company{}.Ein() // 58-6520513
-func (c Company) Ein() string {
+func (c fakeCompany) Ein() string {
 	return Numerify("##-#######")
 }
 
-// Example:
-//  Company{}.DunsNumber() // 16-708-2968
-func (c Company) DunsNumber() string {
+func (c fakeCompany) DunsNumber() string {
 	return Numerify("##-###-####")
 }
 
-// Example:
-//  Company{}.Logo() // http://www.biz-logo.com/examples/015.gif
-func (c Company) Logo() string {
+func (c fakeCompany) Logo() string {
 	n := RandomInt(1, 77)
 	return fmt.Sprintf("http://www.biz-logo.com/examples/%03d.gif", n)
 }
 
-// Example:
-//  fmt.Println(Company{}) // Jaskolski-Morar
-func (c Company) String() string {
+func (c fakeCompany) String() string {
 	return c.Name()
 }
