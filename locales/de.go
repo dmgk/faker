@@ -80,7 +80,7 @@ var De = map[string]interface{}{
 			"zu", "von", "vom", "von der",
 		},
 		"name": []string{
-			"#{name.prefix} #{name.first_name} #{name.last_name}", "#{name.first_name} #{nobility_title_prefix} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}",
+			"#{name.prefix} #{name.first_name} #{name.last_name}", "#{name.first_name} #{name.nobility_title_prefix} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}",
 		},
 	},
 	"phone_number": map[string]interface{}{
