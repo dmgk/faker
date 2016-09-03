@@ -71,6 +71,7 @@ func main() {
 	out = regexp.MustCompile(`#\{prefix`).ReplaceAllString(out, "#{name.prefix")
 	out = regexp.MustCompile(`#\{suffix`).ReplaceAllString(out, "#{name.suffix")
 	out = regexp.MustCompile(`#\{first_name`).ReplaceAllString(out, "#{name.first_name")
+	out = regexp.MustCompile(`#\{nobility_title_prefix`).ReplaceAllString(out, "#{name.nobility_title_prefix")
 	out = regexp.MustCompile(`#\{last_name`).ReplaceAllString(out, "#{name.last_name")
 	out = regexp.MustCompile(`#\{city_prefix`).ReplaceAllString(out, "#{address.city_prefix")
 	out = regexp.MustCompile(`#\{city_suffix`).ReplaceAllString(out, "#{address.city_suffix")
