@@ -4,13 +4,13 @@ Faker is a library for generating fake data such as names, addresses, and phone 
 
 It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stympy/faker) to Go.
 
-[![GoDoc](https://godoc.org/github.com/enodata/faker?status.svg)](https://godoc.org/github.com/enodata/faker)
-[![Build Status](https://travis-ci.org/enodata/faker.svg?branch=master)](https://travis-ci.org/enodata/faker)
-[![Coverage Status](https://coveralls.io/repos/enodata/faker/badge.svg?branch=master)](https://coveralls.io/r/enodata/faker?branch=master)
+[![GoDoc](https://godoc.org/github.com/dmgk/faker?status.svg)](https://godoc.org/github.com/dmgk/faker)
+[![Build Status](https://travis-ci.org/dmgk/faker.svg?branch=master)](https://travis-ci.org/dmgk/faker)
+[![Coverage Status](https://coveralls.io/repos/dmgk/faker/badge.svg?branch=master)](https://coveralls.io/r/dmgk/faker?branch=master)
 
 To install
 
-    go get -u github.com/enodata/faker
+    go get -u github.com/dmgk/faker
 
 ## Usage
 

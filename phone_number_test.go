@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/enodata/faker/locales"
+	"github.com/dmgk/faker/locales"
 )
 
 func TestPhoneNumberPhoneNumber(t *testing.T) {

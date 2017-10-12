@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/enodata/faker/locales"
+	"github.com/dmgk/faker/locales"
 )
 
 const (

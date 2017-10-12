@@ -63,7 +63,7 @@ func capitalize(s string) string {
 //
 //	import (
 //		"fmt"
-//		"github.com/enodata/faker"
+//		"github.com/dmgk/faker"
 //	)
 //
 //	func main() {
