@@ -75,7 +75,7 @@ func RandomInt(min, max int) int {
 	return min + rand.Intn(max-min+1)
 }
 
-// RandonmInt64 returns random int64 in [min, max] range.
+// RandomInt64 returns random int64 in [min, max] range.
 func RandomInt64(min, max int64) int64 {
 	if max <= min {
 		// degenerate case, return min
@@ -104,19 +104,18 @@ func RandomChoice(ss []string) string {
 	return ss[rand.Intn(len(ss))]
 }
 
-func includesString(ss []string, s string) (res bool) {
-	res = false
+func includesString(ss []string, s string) bool {
 	for _, v := range ss {
 		if v == s {
-			res = true
+			return true
 		}
 	}
-	return
+	return false
 }
 
 // Numerify replaces pattern like '##-###' with randomly generated digits.
 func Numerify(s string) string {
-	var first bool = true
+	first := true
 	for _, sm := range regexp.MustCompile(`#`).FindAllStringSubmatch(s, -1) {
 		if first {
 			// make sure result does not start with zero
@@ -216,7 +215,7 @@ func localeValueAt(path string, locale map[string]interface{}) (interface{}, boo
 	for _, key := range strings.Split(path, ".") {
 		v, ok := val.(map[string]interface{})
 		if !ok {
-			// all nodes are expected to be of map[string]interface{}
+			// all nodes are expected to have map[string]interface{} type
 			panic(fmt.Sprintf("%v: invalid value type %v", path, reflect.TypeOf(val)))
 		}
 		val, ok = v[key]
