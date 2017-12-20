@@ -6,7 +6,7 @@ It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stymp
 
 [![GoDoc](https://godoc.org/github.com/dmgk/faker?status.svg)](https://godoc.org/github.com/dmgk/faker)
 [![Build Status](https://travis-ci.org/dmgk/faker.svg?branch=master)](https://travis-ci.org/dmgk/faker)
-[![Coverage Status](https://coveralls.io/repos/dmgk/faker/badge.svg?branch=master)](https://coveralls.io/r/dmgk/faker?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/dmgk/faker/badge.svg)](https://coveralls.io/github/dmgk/faker)
 
 To install
 
