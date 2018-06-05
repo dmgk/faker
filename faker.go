@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmgk/faker/locales"
+	"syreclabs.com/go/faker/locales"
 )
 
 const (

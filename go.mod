@@ -1,1 +1,1 @@
-module "github.com/dmgk/faker"
+module "syreclabs.com/go/faker"
