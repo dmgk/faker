@@ -4,6 +4,8 @@ language: go
 go:
   - tip
 
+go_import_path: syreclabs.com/go/faker
+
 before_install:
   - go get github.com/mattn/goveralls
 
