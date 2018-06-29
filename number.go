@@ -1,10 +1,8 @@
 package faker
 
 import (
-	crand "crypto/rand"
 	"encoding/hex"
 	"fmt"
-	"math/rand"
 	"strings"
 )
 
@@ -53,7 +51,7 @@ func (n fakeNumber) Decimal(precision, scale int) string {
 }
 
 func (n fakeNumber) Digit() string {
-	return fmt.Sprintf("%d", rand.Int31n(10))
+	return fmt.Sprintf("%d", localRand.Int31n(10))
 }
 
 func (n fakeNumber) Hexadecimal(digits int) string {
@@ -61,7 +59,7 @@ func (n fakeNumber) Hexadecimal(digits int) string {
 		panic("invalid digits value")
 	}
 	bytes := make([]byte, (digits+1)/2)
-	crand.Read(bytes)
+	localRand.Read(bytes)
 	return hex.EncodeToString(bytes)[:digits]
 }
 

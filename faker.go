@@ -6,13 +6,13 @@ It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stymp
 package faker // import "syreclabs.com/go/faker"
 
 import (
-	crand "crypto/rand"
 	"fmt"
 	"math/rand"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"syreclabs.com/go/faker/locales"
@@ -72,7 +72,7 @@ func RandomInt(min, max int) int {
 		// degenerate case, return min
 		return min
 	}
-	return min + rand.Intn(max-min+1)
+	return min + localRand.Intn(max-min+1)
 }
 
 // RandomInt64 returns random int64 in [min, max] range.
@@ -81,13 +81,13 @@ func RandomInt64(min, max int64) int64 {
 		// degenerate case, return min
 		return min
 	}
-	return min + rand.Int63n(max-min+1)
+	return min + localRand.Int63n(max-min+1)
 }
 
 // RandomString returns a random alphanumeric string with length n.
 func RandomString(n int) string {
 	bytes := make([]byte, n)
-	crand.Read(bytes)
+	localRand.Read(bytes)
 	for i, b := range bytes {
 		bytes[i] = digitsAndLetters[b%byte(len(digitsAndLetters))]
 	}
@@ -101,7 +101,7 @@ func RandomRepeat(s string, min, max int) string {
 
 // RandomChoice returns random string from slice of strings.
 func RandomChoice(ss []string) string {
-	return ss[rand.Intn(len(ss))]
+	return ss[localRand.Intn(len(ss))]
 }
 
 func includesString(ss []string, s string) bool {
@@ -282,6 +282,34 @@ func Fetch(path string) string {
 	return res
 }
 
+// from https://github.com/golang/go/blob/go1.10.3/src/math/rand/rand.go#L371
+type lockedSource struct {
+	lk  sync.Mutex
+	src rand.Source64
+}
+
+func (r *lockedSource) Int63() (n int64) {
+	r.lk.Lock()
+	n = r.src.Int63()
+	r.lk.Unlock()
+	return
+}
+
+func (r *lockedSource) Uint64() (n uint64) {
+	r.lk.Lock()
+	n = r.src.Uint64()
+	r.lk.Unlock()
+	return
+}
+
+func (r *lockedSource) Seed(seed int64) {
+	r.lk.Lock()
+	r.src.Seed(seed)
+	r.lk.Unlock()
+}
+
+var localRand = rand.New(&lockedSource{src: rand.NewSource(1).(rand.Source64)})
+
 func init() {
-	rand.Seed(time.Now().UTC().UnixNano())
+	localRand.Seed(time.Now().UTC().UnixNano())
 }

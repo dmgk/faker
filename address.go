@@ -2,7 +2,6 @@ package faker
 
 import (
 	"fmt"
-	"math/rand"
 	"reflect"
 )
 
@@ -117,11 +116,11 @@ func (a fakeAddress) CountryCode() string {
 }
 
 func (a fakeAddress) Latitude() float32 {
-	return (rand.Float32() * 180.0) - 90.0
+	return (localRand.Float32() * 180.0) - 90.0
 }
 
 func (a fakeAddress) Longitude() float32 {
-	return (rand.Float32() * 360.0) - 180.0
+	return (localRand.Float32() * 360.0) - 180.0
 }
 
 func (a fakeAddress) String() string {

@@ -1,7 +1,6 @@
 package faker
 
 import (
-	"crypto/rand"
 	"crypto/sha256"
 	"math/big"
 )
@@ -19,7 +18,7 @@ func Bitcoin() FakeBitcoin {
 
 func (b fakeBitcoin) Address() string {
 	v := make([]byte, 20)
-	rand.Read(v)
+	localRand.Read(v)
 
 	return string(encodeBase58Check(v))
 }

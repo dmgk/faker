@@ -2,7 +2,6 @@ package faker
 
 import (
 	"math"
-	"math/rand"
 	"strings"
 )
 
@@ -57,5 +56,5 @@ func (c fakeCommerce) ProductName() string {
 }
 
 func (c fakeCommerce) Price() float32 {
-	return float32(math.Floor(rand.Float64()*10000.0)/100.0 + 0.01)
+	return float32(math.Floor(localRand.Float64()*10000.0)/100.0 + 0.01)
 }

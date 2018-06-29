@@ -1,7 +1,6 @@
 package faker
 
 import (
-	"math/rand"
 	"strings"
 )
 
@@ -40,7 +39,7 @@ func (l fakeLorem) Character() string {
 // Example:
 //	Lorem{}.Characters(17) // wqFyJIrXYfVP7cL9M
 func (l fakeLorem) Characters(num int) string {
-	perm := rand.Perm(len(digitsAndLetters) * (num/len(digitsAndLetters) + 1))
+	perm := localRand.Perm(len(digitsAndLetters) * (num/len(digitsAndLetters) + 1))
 	res := make([]byte, num)
 	for i := range res {
 		res[i] = digitsAndLetters[perm[i]%len(digitsAndLetters)]
@@ -58,7 +57,7 @@ func (l fakeLorem) Word() string {
 //	Lorem{}.Words(3) // [omnis libero neque]
 func (l fakeLorem) Words(num int) []string {
 	words := valueAt("lorem.words").([]string)
-	perm := rand.Perm(len(words) * (num/len(words) + 1))
+	perm := localRand.Perm(len(words) * (num/len(words) + 1))
 	res := make([]string, num)
 	for i := range res {
 		res[i] = words[perm[i]%len(words)]
@@ -78,7 +77,7 @@ func (l fakeLorem) Sentence(words int) string {
 func (l fakeLorem) Sentences(num int) []string {
 	res := make([]string, num)
 	for i := range res {
-		res[i] = l.Sentence(rand.Intn(9) + 3) // 3 to 11 words
+		res[i] = l.Sentence(localRand.Intn(9) + 3) // 3 to 11 words
 	}
 	return res
 }
@@ -92,12 +91,12 @@ func (l fakeLorem) Paragraph(sentences int) string {
 func (l fakeLorem) Paragraphs(num int) []string {
 	res := make([]string, num)
 	for i := range res {
-		res[i] = l.Paragraph(rand.Intn(9) + 3) // 3 to 11 sentences
+		res[i] = l.Paragraph(localRand.Intn(9) + 3) // 3 to 11 sentences
 	}
 	return res
 }
 
 // String returns a random sentence 3 to 11 words in length.
 func (l fakeLorem) String() string {
-	return l.Sentence(rand.Intn(9) + 3) // 3 to 11 words
+	return l.Sentence(localRand.Intn(9) + 3) // 3 to 11 words
 }

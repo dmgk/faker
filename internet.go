@@ -2,7 +2,6 @@ package faker
 
 import (
 	"fmt"
-	"math/rand"
 	"regexp"
 	"strings"
 )
@@ -86,7 +85,7 @@ func (i fakeInternet) DomainSuffix() string {
 func (i fakeInternet) MacAddress() string {
 	ss := make([]string, 6, 6)
 	for i := range ss {
-		ss[i] = fmt.Sprintf("%02x", rand.Int31n(256))
+		ss[i] = fmt.Sprintf("%02x", localRand.Int31n(256))
 	}
 	return strings.Join(ss, ":")
 }
@@ -94,7 +93,7 @@ func (i fakeInternet) MacAddress() string {
 func (i fakeInternet) IpV4Address() string {
 	ss := make([]string, 4, 4)
 	for i := range ss {
-		ss[i] = fmt.Sprintf("%d", rand.Int31n(256))
+		ss[i] = fmt.Sprintf("%d", localRand.Int31n(256))
 	}
 	return strings.Join(ss, ".")
 }
@@ -102,7 +101,7 @@ func (i fakeInternet) IpV4Address() string {
 func (i fakeInternet) IpV6Address() string {
 	ss := make([]string, 8, 8)
 	for i := range ss {
-		ss[i] = fmt.Sprintf("%04x", rand.Int31n(65536))
+		ss[i] = fmt.Sprintf("%04x", localRand.Int31n(65536))
 	}
 	return strings.Join(ss, ":")
 }
