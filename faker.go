@@ -308,8 +308,20 @@ func (r *lockedSource) Seed(seed int64) {
 	r.lk.Unlock()
 }
 
-var localRand = rand.New(&lockedSource{src: rand.NewSource(1).(rand.Source64)})
-
-func init() {
-	localRand.Seed(time.Now().UTC().UnixNano())
+// lockedReadRand provides Rand.Read that is safe for concurrent use.
+type lockedReadRand struct {
+	lk sync.Mutex
+	*rand.Rand
 }
+
+func (lr *lockedReadRand) Read(p []byte) (n int, err error) {
+	lr.lk.Lock()
+	n, err = lr.Rand.Read(p)
+	lr.lk.Unlock()
+	return
+}
+
+var (
+	localSource = &lockedSource{src: rand.NewSource(time.Now().UTC().UnixNano()).(rand.Source64)}
+	localRand   = &lockedReadRand{Rand: rand.New(localSource)}
+)
