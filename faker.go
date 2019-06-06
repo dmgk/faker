@@ -1,5 +1,5 @@
 /*
-Faker is a library for generating fake data such as names, addresses, and phone numbers.
+Package faker is a library for generating fake data such as names, addresses, and phone numbers.
 
 It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stympy/faker) to Go.
 */
@@ -27,10 +27,10 @@ const (
 )
 
 var (
-	aryDigits   []string = strings.Split(digits, "")
-	aryULetters []string = strings.Split(uLetters, "")
-	aryDLetters []string = strings.Split(dLetters, "")
-	aryLetters  []string = strings.Split(letters, "")
+	aryDigits   = strings.Split(digits, "")
+	aryULetters = strings.Split(uLetters, "")
+	aryDLetters = strings.Split(dLetters, "")
+	aryLetters  = strings.Split(letters, "")
 )
 
 // Generate locales
@@ -63,10 +63,10 @@ var (
 //go:generate go run cmd/generate.go yaml/zh-CN.yml locales/zh-cn.go
 //go:generate go run cmd/generate.go yaml/zh-TW.yml locales/zh-tw.go
 
-// Default locale.
+// Locale holds the default locale.
 var Locale = locales.En
 
-// RandonmInt returns random int in [min, max] range.
+// RandomInt returns random int in [min, max] range.
 func RandomInt(min, max int) int {
 	if max <= min {
 		// degenerate case, return min
@@ -326,6 +326,7 @@ var (
 	localRand   = &lockedReadRand{Rand: rand.New(localSource)}
 )
 
+// Seed uses the provided seed value to initialize the random source to a deterministic state.
 func Seed(seed int64) {
 	localRand.Seed(seed)
 }

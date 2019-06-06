@@ -46,7 +46,7 @@ func (i fakeInternet) SafeEmail() string {
 	return strings.Join(ss, "@")
 }
 
-var separators []string = []string{".", "_"}
+var separators = []string{".", "_"}
 var rxNonWord = regexp.MustCompile(`\W`)
 
 func sanitizeName(s string) string {

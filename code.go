@@ -26,7 +26,7 @@ func (c fakeCode) Isbn10() string {
 		panic(err)
 	}
 
-	var sum int = 0
+	var sum int
 	for i, v := range val {
 		n, err := strconv.Atoi(string(v))
 		if err != nil {
@@ -38,9 +38,8 @@ func (c fakeCode) Isbn10() string {
 
 	if rem == 10 {
 		return fmt.Sprintf("%s-X", val)
-	} else {
-		return fmt.Sprintf("%s-%d", val, rem)
 	}
+	return fmt.Sprintf("%s-%d", val, rem)
 }
 
 func ean13() (ean string, checkDigit string) {
@@ -49,7 +48,7 @@ func ean13() (ean string, checkDigit string) {
 		panic(err)
 	}
 
-	var sum int = 0
+	var sum int
 	for i, d := range ean {
 		n, err := strconv.Atoi(string(d))
 		if err != nil {
@@ -82,7 +81,7 @@ func (c fakeCode) Ean8() string {
 		panic(err)
 	}
 
-	var sum int = 0
+	var sum int
 	for i, d := range ean {
 		n, err := strconv.Atoi(string(d))
 		if err != nil {
@@ -107,7 +106,7 @@ func (c fakeCode) Rut() string {
 		panic(err)
 	}
 
-	var sum int = 0
+	var sum int
 	for i, d := range rut {
 		n, err := strconv.Atoi(string(d))
 		if err != nil {
@@ -138,7 +137,7 @@ func (c fakeCode) Abn() string {
 		panic(err)
 	}
 
-	var sum int = 0
+	var sum int
 	for i, d := range acn {
 		n, err := strconv.Atoi(string(d))
 		if err != nil {

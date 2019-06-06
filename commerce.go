@@ -26,7 +26,7 @@ func (c fakeCommerce) Department() string {
 	n := RandomInt(1, 3)
 
 	deps := make([]string, n)
-	for i, _ := range deps {
+	for i := range deps {
 		d := Fetch("commerce.department")
 		for includesString(deps, d) {
 			d = Fetch("commerce.department")
@@ -41,9 +41,8 @@ func (c fakeCommerce) Department() string {
 			deps[len(deps)-1],
 		}, sep)
 		return res
-	} else {
-		return deps[0]
 	}
+	return deps[0]
 }
 
 func (c fakeCommerce) ProductName() string {

@@ -33,7 +33,7 @@ const (
 	CC_LASER              = "laser"
 )
 
-// Known credit card types.
+// CC_TYPES holds a list of known credit card types.
 var CC_TYPES = []string{
 	CC_VISA,
 	CC_MASTERCARD,

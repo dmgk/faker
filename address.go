@@ -65,9 +65,8 @@ func (a fakeAddress) PostcodeByState(state string) string {
 		_, ok := pbs[state]
 		if ok {
 			return NumerifyAndLetterify(Fetch("address.postcode_by_state." + state))
-		} else {
-			panic(fmt.Sprintf("invalid state: %v", state))
 		}
+		panic(fmt.Sprintf("invalid state: %v", state))
 	case []string:
 		return NumerifyAndLetterify(Fetch("address.postcode_by_state"))
 	default:
