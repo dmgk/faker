@@ -1,1 +1,3 @@
-module "syreclabs.com/go/faker"
+module syreclabs.com/go/faker
+
+go 1.11

@@ -325,3 +325,7 @@ var (
 	localSource = &lockedSource{src: rand.NewSource(time.Now().UTC().UnixNano()).(rand.Source64)}
 	localRand   = &lockedReadRand{Rand: rand.New(localSource)}
 )
+
+func Seed(seed int64) {
+	localRand.Seed(seed)
+}
