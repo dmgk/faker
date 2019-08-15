@@ -3,11 +3,16 @@ package faker
 import (
 	"encoding/hex"
 	"fmt"
+	"strconv"
 	"strings"
+	"unsafe"
 )
 
 type FakeNumber interface {
 	Number(digits int) string            // => "43202"
+	NumberInt(digits int) int            // => 213
+	NumberInt32(digits int) int32        // => 92938
+	NumberInt64(digits int) int64        // => 1689541633257139096
 	Decimal(precision, scale int) string // => "879420.60"
 	Digit() string                       // => "7"
 	Hexadecimal(digits int) string       // => "e7f3"
@@ -31,6 +36,65 @@ func (n fakeNumber) Number(digits int) string {
 		dd[i] = n.Digit()
 	}
 	return strings.Join(dd, "")
+}
+
+const (
+	maxDigitsInt32 = 10
+	maxDigitsInt64 = 19
+)
+
+func nonZeroDigit() string {
+	return fmt.Sprintf("%d", localRand.Int31n(9)+1)
+}
+
+func numberPattern(digits, maxDigits int) string {
+	switch digits {
+	case 1:
+		return nonZeroDigit()
+	case maxDigits:
+		return fmt.Sprintf(`1\d{%d}`, digits-1)
+	default:
+		return fmt.Sprintf(`%s\d{%d}`, nonZeroDigit(), digits-1)
+	}
+}
+
+func (n fakeNumber) NumberInt32(digits int) int32 {
+	if digits <= 0 || digits > maxDigitsInt32 {
+		panic("invalid digits value")
+	}
+	pat := numberPattern(digits, maxDigitsInt32)
+	num, err := Regexify(pat)
+	if err != nil {
+		panic(fmt.Sprintf("error regexifying %v: %v", pat, err))
+	}
+	res, err := strconv.ParseInt(num, 10, 32)
+	if err != nil {
+		panic(fmt.Sprintf("error parsing %v as int32: %v", num, err))
+	}
+	return int32(res)
+}
+
+func (n fakeNumber) NumberInt64(digits int) int64 {
+	if digits <= 0 || digits > maxDigitsInt64 {
+		panic("invalid digits value")
+	}
+	pat := numberPattern(digits, maxDigitsInt64)
+	num, err := Regexify(pat)
+	if err != nil {
+		panic(fmt.Sprintf("error regexifying %v: %v", pat, err))
+	}
+	res, err := strconv.ParseInt(num, 10, 64)
+	if err != nil {
+		panic(fmt.Sprintf("error parsing %v as int64: %v", num, err))
+	}
+	return int64(res)
+}
+
+func (n fakeNumber) NumberInt(digits int) int {
+	if unsafe.Sizeof(int(0)) == unsafe.Sizeof(int64(0)) {
+		return int(n.NumberInt64(digits))
+	}
+	return int(n.NumberInt32(digits))
 }
 
 func (n fakeNumber) Decimal(precision, scale int) string {

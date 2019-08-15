@@ -204,6 +204,9 @@ faker.Name().String()    // String is an alias for Name.
 -------------------
 ```go
 faker.Number().Number(5)          // => "43202"
+faker.Number().NumberInt(3)       // => 213
+faker.Number().NumberInt32(5)     // => 92938
+faker.Number().NumberInt64(19)    // => 1689541633257139096
 faker.Number().Decimal(8, 2)      // => "879420.60"
 faker.Number().Digit()            // => "7"
 faker.Number().Hexadecimal(4)     // => "e7f3"

@@ -20,6 +20,45 @@ func TestNumberNumber(t *testing.T) {
 	}
 }
 
+func TestNumberNumberInt32(t *testing.T) {
+	digits := []int{1, 2, 4, 9, 10}
+	for _, d := range digits {
+		rx := fmt.Sprintf(`\d{%d}`, d)
+		for i := 0; i < 10; i++ {
+			res := strconv.FormatInt(int64(Number().NumberInt32(d)), 10)
+			if m, _ := regexp.MatchString(rx, res); !m {
+				t.Errorf("expected %v to match %v", res, rx)
+			}
+		}
+	}
+}
+
+func TestNumberNumberInt64(t *testing.T) {
+	digits := []int{1, 7, 9, 18, 19}
+	for _, d := range digits {
+		rx := fmt.Sprintf(`\d{%d}`, d)
+		for i := 0; i < 10; i++ {
+			res := strconv.FormatInt(int64(Number().NumberInt64(d)), 10)
+			if m, _ := regexp.MatchString(rx, res); !m {
+				t.Errorf("expected %v to match %v", res, rx)
+			}
+		}
+	}
+}
+
+func TestNumberNumberInt(t *testing.T) {
+	digits := []int{1, 5, 10}
+	for _, d := range digits {
+		rx := fmt.Sprintf(`\d{%d}`, d)
+		for i := 0; i < 10; i++ {
+			res := strconv.FormatInt(int64(Number().NumberInt(d)), 10)
+			if m, _ := regexp.MatchString(rx, res); !m {
+				t.Errorf("expected %v to match %v", res, rx)
+			}
+		}
+	}
+}
+
 func TestNumberDecimal(t *testing.T) {
 	args := []struct {
 		precision, scale int
