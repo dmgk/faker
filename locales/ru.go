@@ -85,7 +85,7 @@ var Ru = map[string]interface{}{
 	},
 	"name": map[string]interface{}{
 		"name": []string{
-			"#{male_first_name} #{male_last_name}", "#{male_last_name} #{male_first_name}", "#{male_first_name} #{male_middle_name} #{male_last_name}", "#{male_last_name} #{male_first_name} #{male_middle_name}", "#{female_first_name} #{female_last_name}", "#{female_last_name} #{female_first_name}", "#{female_first_name} #{female_middle_name} #{female_last_name}", "#{female_last_name} #{female_first_name} #{female_middle_name}",
+			"#{name.male_first_name} #{name.male_last_name}", "#{name.male_last_name} #{name.male_first_name}", "#{name.male_first_name} #{name.male_middle_name} #{name.male_last_name}", "#{name.male_last_name} #{name.male_first_name} #{name.male_middle_name}", "#{name.female_first_name} #{name.female_last_name}", "#{name.female_last_name} #{name.female_first_name}", "#{name.female_first_name} #{name.female_middle_name} #{name.female_last_name}", "#{name.female_last_name} #{name.female_first_name} #{name.female_middle_name}",
 		},
 		"male_first_name": []string{
 			"Александр", "Алексей", "Альберт", "Анатолий", "Андрей", "Антон", "Аркадий", "Арсений", "Артём", "Борис", "Вадим", "Валентин", "Валерий", "Василий", "Виктор", "Виталий", "Владимир", "Владислав", "Вячеслав", "Геннадий", "Георгий", "Герман", "Григорий", "Даниил", "Денис", "Дмитрий", "Евгений", "Егор", "Иван", "Игнатий", "Игорь", "Илья", "Константин", "Лаврентий", "Леонид", "Лука", "Макар", "Максим", "Матвей", "Михаил", "Никита", "Николай", "Олег", "Роман", "Семён", "Сергей", "Станислав", "Степан", "Фёдор", "Эдуард", "Юрий", "Ярослав",

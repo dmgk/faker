@@ -37,7 +37,7 @@ var En_AU_OCKER = map[string]interface{}{
 			"NSW", "QLD", "NT", "SA", "WA", "TAS", "ACT", "VIC",
 		},
 		"street_name": []string{
-			"#{street_root}",
+			"#{address.street_root}",
 		},
 		"street_suffix": []string{
 			"Avenue", "Boulevard", "Circle", "Circuit", "Court", "Crescent", "Crest", "Drive", "Estate Dr", "Grove", "Hill", "Island", "Junction", "Knoll", "Lane", "Loop", "Mall", "Manor", "Meadow", "Mews", "Parade", "Parkway", "Pass", "Place", "Plaza", "Ridge", "Road", "Run", "Square", "Station St", "Street", "Summit", "Terrace", "Track", "Trail", "View Rd", "Way",
