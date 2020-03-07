@@ -18,7 +18,7 @@ var De_AT = map[string]interface{}{
 			"Aigen im Mühlkreis", "Allerheiligen bei Wildon", "Altenfelden", "Arriach", "Axams", "Baumgartenberg", "Bergern im Dunkelsteinerwald", "Berndorf bei Salzburg", "Bregenz", "Breitenbach am Inn", "Deutsch-Wagram", "Dienten am Hochkönig", "Dietach", "Dornbirn", "Dürnkrut", "Eben im Pongau", "Ebenthal in Kärnten", "Eichgraben", "Eisenstadt", "Ellmau", "Feistritz am Wechsel", "Finkenberg", "Fiss", "Frantschach-St. Gertraud", "Fritzens", "Gams bei Hieflau", "Geiersberg", "Graz", "Großhöflein", "Gößnitz", "Hartl", "Hausleiten", "Herzogenburg", "Hinterhornbach", "Hochwolkersdorf", "Ilz", "Ilztal", "Innerbraz", "Innsbruck", "Itter", "Jagerberg", "Jeging", "Johnsbach", "Johnsdorf-Brunn", "Jungholz", "Kirchdorf am Inn", "Klagenfurt", "Kottes-Purk", "Krumau am Kamp", "Krumbach", "Lavamünd", "Lech", "Linz", "Ludesch", "Lödersdorf", "Marbach an der Donau", "Mattsee", "Mautern an der Donau", "Mauterndorf", "Mitterbach am Erlaufsee", "Neudorf bei Passail", "Neudorf bei Staatz", "Neukirchen an der Enknach", "Neustift an der Lafnitz", "Niederleis", "Oberndorf in Tirol", "Oberstorcha", "Oberwaltersdorf", "Oed-Oehling", "Ort im Innkreis", "Pilgersdorf", "Pitschgau", "Pollham", "Preitenegg", "Purbach am Neusiedler See", "Rabenwald", "Raiding", "Rastenfeld", "Ratten", "Rettenegg", "Salzburg", "Sankt Johann im Saggautal", "St. Peter am Kammersberg", "St. Pölten", "St. Veit an der Glan", "Taxenbach", "Tragwein", "Trebesing", "Trieben", "Turnau", "Ungerdorf", "Unterauersbach", "Unterstinkenbrunn", "Untertilliach", "Uttendorf", "Vals", "Velden am Wörther See", "Viehhofen", "Villach", "Vitis", "Waidhofen an der Thaya", "Waldkirchen am Wesen", "Weißkirchen an der Traun", "Wien", "Wimpassing im Schwarzatale", "Ybbs an der Donau", "Ybbsitz", "Yspertal", "Zeillern", "Zell am Pettenfirst", "Zell an der Pram", "Zerlach", "Zwölfaxing", "Öblarn", "Übelbach", "Überackern", "Übersaxen", "Übersbach",
 		},
 		"street_name": []string{
-			"#{street_root}",
+			"#{address.street_root}",
 		},
 		"street_address": []string{
 			"#{address.street_name} #{address.building_number}",
@@ -33,7 +33,7 @@ var De_AT = map[string]interface{}{
 			"Burgenland", "Kärnten", "Niederösterreich", "Oberösterreich", "Salzburg", "Steiermark", "Tirol", "Vorarlberg", "Wien",
 		},
 		"city": []string{
-			"#{city_name}",
+			"#{address.city_name}",
 		},
 		"default_country": []string{
 			"Österreich",

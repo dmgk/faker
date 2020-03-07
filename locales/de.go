@@ -18,7 +18,7 @@ var De = map[string]interface{}{
 			"#{address.city_prefix} #{name.first_name}#{address.city_suffix}", "#{address.city_prefix} #{name.first_name}", "#{name.first_name}#{address.city_suffix}", "#{name.last_name}#{address.city_suffix}",
 		},
 		"street_name": []string{
-			"#{street_root}",
+			"#{address.street_root}",
 		},
 		"city_suffix": []string{
 			"stadt", "dorf", "land", "scheid", "burg",

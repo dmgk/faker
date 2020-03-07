@@ -21,7 +21,7 @@ var Nb_NO = map[string]interface{}{
 			"alléen", "bakken", "berget", "bråten", "eggen", "engen", "ekra", "faret", "flata", "gata", "gjerdet", "grenda", "gropa", "hagen", "haugen", "havna", "holtet", "høgda", "jordet", "kollen", "kroken", "lia", "lunden", "lyngen", "løkka", "marka", "moen", "myra", "plassen", "ringen", "roa", "røa", "skogen", "skrenten", "spranget", "stien", "stranda", "stubben", "stykket", "svingen", "tjernet", "toppen", "tunet", "vollen", "vika", "åsen",
 		},
 		"city": []string{
-			"#{city_root}#{address.city_suffix}",
+			"#{address.city_root}#{address.city_suffix}",
 		},
 		"common_street_suffix": []string{
 			"sgate", "svei", "s Gate", "s Vei", "gata", "veien",
@@ -42,7 +42,7 @@ var Nb_NO = map[string]interface{}{
 			"berg", "borg", "by", "bø", "dal", "eid", "fjell", "fjord", "foss", "grunn", "hamn", "havn", "helle", "mark", "nes", "odden", "sand", "sjøen", "stad", "strand", "strøm", "sund", "vik", "vær", "våg", "ø", "øy", "ås",
 		},
 		"street_name": []string{
-			"#{street_root}#{address.street_suffix}", "#{street_prefix} #{street_root}#{address.street_suffix}", "#{name.first_name}#{common_street_suffix}", "#{name.last_name}#{common_street_suffix}",
+			"#{address.street_root}#{address.street_suffix}", "#{street_prefix} #{street_root}#{address.street_suffix}", "#{name.first_name}#{common_street_suffix}", "#{name.last_name}#{common_street_suffix}",
 		},
 	},
 	"company": map[string]interface{}{

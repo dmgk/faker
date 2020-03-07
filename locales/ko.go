@@ -9,7 +9,7 @@ var Ko = map[string]interface{}{
 			"구", "시", "군",
 		},
 		"city": []string{
-			"#{city_name}#{address.city_suffix}",
+			"#{address.city_name}#{address.city_suffix}",
 		},
 		"state": []string{
 			"강원", "경기", "경남", "경북", "광주", "대구", "대전", "부산", "서울", "울산", "인천", "전남", "전북", "제주", "충남", "충북", "세종",
@@ -27,7 +27,7 @@ var Ko = map[string]interface{}{
 			"읍", "면", "동",
 		},
 		"street_name": []string{
-			"#{street_root}#{address.street_suffix}",
+			"#{address.street_root}#{address.street_suffix}",
 		},
 	},
 	"phone_number": map[string]interface{}{
