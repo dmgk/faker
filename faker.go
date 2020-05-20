@@ -104,6 +104,15 @@ func RandomChoice(ss []string) string {
 	return ss[localRand.Intn(len(ss))]
 }
 
+// RandomBool returns a true or false
+func RandomBool() bool {
+	dato := RandomInt(0, 1)
+	if dato == 1 {
+		return true
+	}
+	return false
+}
+
 func includesString(ss []string, s string) bool {
 	for _, v := range ss {
 		if v == s {
