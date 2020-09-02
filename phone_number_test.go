@@ -1,11 +1,10 @@
 package faker
 
 import (
+	"faker/locales"
 	"fmt"
 	"regexp"
 	"testing"
-
-	"syreclabs.com/go/faker/locales"
 )
 
 func TestPhoneNumberPhoneNumber(t *testing.T) {
@@ -15,18 +14,6 @@ func TestPhoneNumberPhoneNumber(t *testing.T) {
 func TestPhoneNumberCellPhone(t *testing.T) {
 	Locale = locales.De
 	testMatchRx(t, PhoneNumber().CellPhone, `\+49-\w+`)
-	Locale = locales.En
-}
-
-func TestPhoneNumberAreaCode(t *testing.T) {
-	Locale = locales.En_US
-	testMatchRx(t, PhoneNumber().AreaCode, `\d+`)
-	Locale = locales.En
-}
-
-func TestPhoneNumberExchangeCode(t *testing.T) {
-	Locale = locales.En_US
-	testMatchRx(t, PhoneNumber().AreaCode, `\d+`)
 	Locale = locales.En
 }
 

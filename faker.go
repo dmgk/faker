@@ -32,36 +32,6 @@ var (
 	aryLetters  = strings.Split(letters, "")
 )
 
-// Generate locales
-//go:generate go run cmd/generate.go yaml/de-AT.yml locales/de-at.go
-//go:generate go run cmd/generate.go yaml/de-CH.yml locales/de-ch.go
-//go:generate go run cmd/generate.go yaml/de.yml locales/de.go
-//go:generate go run cmd/generate.go yaml/en-au-ocker.yml locales/en-au-ocker.go
-//go:generate go run cmd/generate.go yaml/en-AU.yml locales/en-au.go
-//go:generate go run cmd/generate.go yaml/en-BORK.yml locales/en-bork.go
-//go:generate go run cmd/generate.go yaml/en-CA.yml locales/en-ca.go
-//go:generate go run cmd/generate.go yaml/en-GB.yml locales/en-gb.go
-//go:generate go run cmd/generate.go yaml/en-IND.yml locales/en-ind.go
-//go:generate go run cmd/generate.go yaml/en-NEP.yml locales/en-nep.go
-//go:generate go run cmd/generate.go yaml/en-US.yml locales/en-us.go
-//go:generate go run cmd/generate.go yaml/en.yml locales/en.go
-//go:generate go run cmd/generate.go yaml/es.yml locales/es.go
-//go:generate go run cmd/generate.go yaml/fa.yml locales/fa.go
-//go:generate go run cmd/generate.go yaml/fr.yml locales/fr.go
-//go:generate go run cmd/generate.go yaml/it.yml locales/it.go
-//go:generate go run cmd/generate.go yaml/ja.yml locales/ja.go
-//go:generate go run cmd/generate.go yaml/ko.yml locales/ko.go
-//go:generate go run cmd/generate.go yaml/nb-NO.yml locales/nb-no.go
-//go:generate go run cmd/generate.go yaml/nl.yml locales/nl.go
-//go:generate go run cmd/generate.go yaml/pl.yml locales/pl.go
-//go:generate go run cmd/generate.go yaml/pt-BR.yml locales/pt-br.go
-//go:generate go run cmd/generate.go yaml/ru.yml locales/ru.go
-//go:generate go run cmd/generate.go yaml/sk.yml locales/sk.go
-//go:generate go run cmd/generate.go yaml/sv.yml locales/sv.go
-//go:generate go run cmd/generate.go yaml/vi.yml locales/vi.go
-//go:generate go run cmd/generate.go yaml/zh-CN.yml locales/zh-cn.go
-//go:generate go run cmd/generate.go yaml/zh-TW.yml locales/zh-tw.go
-
 // Locale holds the default locale.
 var Locale = locales.De
 
