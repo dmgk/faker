@@ -66,6 +66,17 @@ var (
 // Locale holds the default locale.
 var Locale = locales.En
 
+func SetLanguage(language string) {
+	switch language {
+	case "de":
+		Locale = locales.De
+	case "en":
+		Locale = locales.En
+	default:
+		Locale = locales.De
+	}
+}
+
 // RandomInt returns random int in [min, max] range.
 func RandomInt(min, max int) int {
 	if max <= min {
