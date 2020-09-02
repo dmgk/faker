@@ -6,6 +6,7 @@ It is a (mostly) API-compatible port of Ruby Faker gem (https://github.com/stymp
 package faker // import "syreclabs.com/go/faker"
 
 import (
+	"faker/locales"
 	"fmt"
 	"math/rand"
 	"reflect"
@@ -14,8 +15,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
-	"syreclabs.com/go/faker/locales"
 )
 
 const (
@@ -64,7 +63,7 @@ var (
 //go:generate go run cmd/generate.go yaml/zh-TW.yml locales/zh-tw.go
 
 // Locale holds the default locale.
-var Locale = locales.En
+var Locale = locales.De
 
 func SetLanguage(language string) {
 	switch language {
