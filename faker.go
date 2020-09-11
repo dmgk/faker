@@ -1,8 +1,8 @@
 package faker
 
 import (
-	"faker/locales"
 	"fmt"
+	"github.com/bahamasbahamas/faker/locales"
 	"math/rand"
 	"reflect"
 	"regexp"
