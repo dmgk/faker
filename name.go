@@ -1,13 +1,15 @@
 package faker
 
 type FakeName interface {
-	Name() string      // => "Natasha Hartmann"
-	FirstName() string // => "Carolina"
-	LastName() string  // => "Kohler"
-	Prefix() string    // => "Dr."
-	Suffix() string    // => "Jr."
-	Title() string     // => "Chief Functionality Orchestrator"
-	String() string    // String is an alias for Name.
+	Name() string            // => "Natasha Hartmann"
+	FirstName() string       // => "Carolina"
+	FirstNameMale() string   // => "Paul"
+	FirstNameFemale() string // => "Simone"
+	LastName() string        // => "Kohler"
+	Prefix() string          // => "Dr."
+	Suffix() string          // => "Jr."
+	Title() string           // => "Chief Functionality Orchestrator"
+	String() string          // String is an alias for Name.
 }
 
 type fakeName struct{}
@@ -22,6 +24,14 @@ func (n fakeName) Name() string {
 
 func (n fakeName) FirstName() string {
 	return Fetch("name.first_name")
+}
+
+func (n fakeName) FirstNameMale() string {
+	return Fetch("name.first_name_male")
+}
+
+func (n fakeName) FirstNameFemale() string {
+	return Fetch("name.first_name_female")
 }
 
 func (n fakeName) LastName() string {
