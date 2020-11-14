@@ -66,6 +66,8 @@ var (
 // Locale holds the default locale.
 var Locale = locales.En
 
+var recurseRegex = regexp.MustCompile(`#\{([A-Za-z]+\.[^\}]+)\}`)
+
 // RandomInt returns random int in [min, max] range.
 func RandomInt(min, max int) int {
 	if max <= min {
@@ -265,7 +267,7 @@ func Fetch(path string) string {
 	}
 
 	// recursively substitute #{...} value references
-	for _, sm := range regexp.MustCompile(`#\{([A-Za-z]+\.[^\}]+)\}`).FindAllStringSubmatch(res, -1) {
+	for _, sm := range recurseRegex.FindAllStringSubmatch(res, -1) {
 		path := strings.ToLower(sm[1])
 		res = strings.Replace(res, sm[0], Fetch(path), 1)
 	}
