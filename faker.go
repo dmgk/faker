@@ -186,7 +186,7 @@ func Regexify(s string) (string, error) {
 		// find and replace all ranges in character class cls
 		for _, subsm := range regexp.MustCompile(`(\w\-\w)`).FindAllStringSubmatch(cls, -1) {
 			rng := strings.Split(subsm[1], "-")
-			repl := string(RandomInt(int(rng[0][0]), int(rng[1][0])))
+			repl := string(rune(RandomInt(int(rng[0][0]), int(rng[1][0]))))
 			cls = strings.Replace(cls, subsm[0], repl, 1)
 		}
 		res = strings.Replace(res, sm[1], cls, 1)
