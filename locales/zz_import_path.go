@@ -1,1 +1,1 @@
-package locales // import "syreclabs.com/go/faker/locales"
+package locales // import "github.com/quinyx-tjeerd/faker/locales"

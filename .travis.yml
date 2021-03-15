@@ -5,7 +5,7 @@ go:
   - 1.x
   - master
 
-go_import_path: syreclabs.com/go/faker
+go_import_path: github.com/quinyx-tjeerd/faker
 
 before_install:
   - go get github.com/mattn/goveralls
