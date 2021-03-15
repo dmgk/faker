@@ -3,10 +3,22 @@ package locales
 var Sv = map[string]interface{}{
 	"name": map[string]interface{}{
 		"first_name_men": []string{
-			"Erik", "Lars", "Karl", "Anders", "Per", "Johan", "Nils", "Lennart", "Emil", "Hans",
+			"Erik", "Karl", "Sven", "Per", "Johan", "Isak", "Lennart", "Simon", "Emil", "Daniel", "Björn", "Gustaf", "Oskar", "Andreas", "Karl", "John", "Marcus", "Mikael", "Peter", "Andree", "Stefan", "Stephan", "Wilhelm",
+		},
+		"first_name_men_end_s": []string{
+			"Lars", "Anders", "Nils", "Andreas",
 		},
 		"last_name": []string{
-			"Johansson", "Andersson", "Karlsson", "Nilsson", "Eriksson", "Larsson", "Olsson", "Persson", "Svensson", "Gustafsson",
+			"#{name.last_name_extra}", "#{name.first_name_men}sson", "#{name.first_name_men_end_s}son", "#{name.last_name_start}#{name.last_name_endings}",
+		},
+		"last_name_extra": []string{
+			"Olsson",
+		},
+		"last_name_start": []string{
+			"Sol", "Sand", "Sjö", "Dahl", "Wahl", "Lind", "Ny", "Käll", "Mell", "Nord", "Ljung", "Björk", "Gran", "Ek", "Berg",
+		},
+		"last_name_endings": []string{
+			"berg", "gren", "blom", "lund", "quist", "qvist", "kvist", "felt", "ström", "dal",
 		},
 		"prefix": []string{
 			"Dr.", "Prof.", "PhD.",
@@ -23,10 +35,13 @@ var Sv = map[string]interface{}{
 			},
 		},
 		"name": []string{
-			"#{name.first_name_women} #{name.last_name}", "#{name.first_name_men} #{name.last_name}", "#{name.first_name_women} #{name.last_name}", "#{name.first_name_men} #{name.last_name}", "#{name.first_name_women} #{name.last_name}", "#{name.first_name_men} #{name.last_name}", "#{name.prefix} #{name.first_name_men} #{name.last_name}", "#{name.prefix} #{name.first_name_women} #{name.last_name}",
+			"#{name.first_name} #{name.last_name}", "#{name.prefix} #{name.first_name} #{name.last_name}",
+		},
+		"first_name": []string{
+			"#{name.first_name_women}", "#{name.first_name_men}", "#{name.first_name_men_end_s}",
 		},
 		"first_name_women": []string{
-			"Maria", "Anna", "Margareta", "Elisabeth", "Eva", "Birgitta", "Kristina", "Karin", "Elisabet", "Marie",
+			"Maria", "Anna", "Margareta", "Elisabeth", "Eva", "Birgitta", "Kristina", "Karin", "Elisabet", "Marie", "Elin", "Emmy", "Hanna", "Ida", "Johanna", "Astrid", "Lisa", "Linnea", "Malin", "Emma",
 		},
 	},
 	"phone_number": map[string]interface{}{
@@ -80,7 +95,7 @@ var Sv = map[string]interface{}{
 			"Lgh. ###", "Hus ###",
 		},
 		"street_name": []string{
-			"#{street_root}#{address.street_suffix}", "#{street_prefix} #{street_root}#{address.street_suffix}", "#{name.first_name}#{common_street_suffix}", "#{name.last_name}#{common_street_suffix}",
+			"#{address.street_root}#{address.street_suffix}", "#{address.street_prefix} #{address.street_root}#{address.street_suffix}", "#{name.first_name}#{address.common_street_suffix}", "#{name.last_name}#{address.common_street_suffix}",
 		},
 		"street_suffix": []string{
 			"vägen", "gatan", "gränden", "gärdet", "allén",
@@ -126,4 +141,7 @@ var Sv = map[string]interface{}{
 	},
 	"internet": map[string]interface{}{
 		"domain_suffix": []string{
-			"se", "nu", "info", "com", "org"}}}
+			"se", "nu", "info", "com", "org",
+		},
+	},
+}
