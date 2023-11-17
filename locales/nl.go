@@ -5,7 +5,7 @@ var Nl = map[string]interface{}{
 		"first_name": []string{
 			"Amber", "Anna", "Anne", "Anouk", "Bas", "Bram", "Britt", "Daan", "Emma", "Eva", "Femke", "Finn", "Fleur", "Iris", "Isa", "Jan", "Jasper", "Jayden", "Jesse", "Johannes", "Julia", "Julian", "Kevin", "Lars", "Lieke", "Lisa", "Lotte", "Lucas", "Luuk", "Maud", "Max", "Mike", "Milan", "Nick", "Niels", "Noa", "Rick", "Roos", "Ruben", "Sander", "Sanne", "Sem", "Sophie", "Stijn", "Sven", "Thijs", "Thijs", "Thomas", "Tim", "Tom",
 		},
-		"tussenvoegsel": []string{
+		"middle_name": []string{
 			"van", "van de", "van den", "van 't", "van het", "de", "den",
 		},
 		"last_name": []string{
@@ -18,7 +18,7 @@ var Nl = map[string]interface{}{
 			"Jr.", "Sr.", "I", "II", "III", "IV", "V",
 		},
 		"name": []string{
-			"#{name.prefix} #{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name} #{name.suffix}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.tussenvoegsel} #{name.last_name}", "#{name.first_name} #{name.tussenvoegsel} #{name.last_name}",
+			"#{name.prefix} #{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name} #{name.suffix}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.middle_name} #{name.last_name}", "#{name.first_name} #{name.middle_name} #{name.last_name}",
 		},
 	},
 	"phone_number": map[string]interface{}{
