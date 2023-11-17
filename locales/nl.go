@@ -18,7 +18,7 @@ var Nl = map[string]interface{}{
 			"Jr.", "Sr.", "I", "II", "III", "IV", "V",
 		},
 		"name": []string{
-			"#{name.prefix} #{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name} #{name.suffix}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{tussenvoegsel} #{name.last_name}", "#{name.first_name} #{tussenvoegsel} #{name.last_name}",
+			"#{name.prefix} #{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name} #{name.suffix}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.last_name}", "#{name.first_name} #{name.tussenvoegsel} #{name.last_name}", "#{name.first_name} #{name.tussenvoegsel} #{name.last_name}",
 		},
 	},
 	"phone_number": map[string]interface{}{
